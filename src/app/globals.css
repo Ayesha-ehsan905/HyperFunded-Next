@@ -1,42 +1,155 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@import "tailwindcss";
+
+body {
+  font-family: 'Inter', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  color-scheme: light;
+
+  /* Core palette (light) */
+  --hf-page: #ffffff;
+  --hf-fg: #1F1F23;
+  --hf-muted: #5A5F7A;
+  --hf-brand: #FF4B33;
+  --hf-brand-hover: #e04a36;
+  --hf-surface: #D9DCE7;
+  --hf-surface-2: #eef2ff;
+  --hf-border: #D9DCE7;
+  --hf-grid: #cbd5e1;
+  --hf-disabled: #C2C6D6;
+  --hf-bg-orange: #FFEAE7;
+  --hf-orange: #FF4B33;
+  /* Status */
+  --hf-success: #00d084;
+  --hf-warning: #cc8400;
+  --hf-teal: #00b8b3;
+
+
+  /* Gradients */
+  --hf-gradient-hero: linear-gradient(180deg, #DDE8FA 0%, #FFF2F1 100%);
+  --hf-gradient-darkpanel: linear-gradient(180deg, #1f252f 0%, #181010 100%);
+
+  /* Step number gradients */
+  --hf-step-1-gradient: linear-gradient(180deg,
+      rgba(255, 75, 51, 0.32) 0%,
+      rgba(255, 75, 51, 0.12) 100%);
+  --hf-step-2-gradient: linear-gradient(180deg,
+      rgba(0, 184, 179, 0.32) 0%,
+      rgba(0, 184, 179, 0.12) 100%);
+  --hf-step-3-gradient: linear-gradient(180deg,
+      rgba(14, 171, 113, 0.32) 0%,
+      rgba(14, 171, 113, 0.12) 100%);
+}
+
+.dark {
+  color-scheme: dark;
+
+  /* Core palette (dark) */
+  --hf-page: #0d0f17;
+  --hf-fg: #f0f0f0;
+
+  --hf-muted: #8a8fa8;
+  --hf-brand: #ff5a44;
+  --hf-brand-hover: #e04a36;
+  --hf-surface: #1A1A22;
+  --hf-surface-2: #181c2e;
+  --hf-border: #2a3050;
+  --hf-grid: #313c63;
+  --hf-disabled: #40455F;
+  --hf-bg-orange: #4B201A;
+  --hf-orange: #FF5B45;
+  /* Status */
+  --hf-success: #00d084;
+  --hf-warning: #cc8400;
+  --hf-teal: #17e6e0;
+
+  /* Gradients */
+
+
+  --hf-gradient-hero: linear-gradient(180deg, #1F252F 0%, #181010 100%);
+  --hf-gradient-darkpanel: linear-gradient(180deg, #1f252f 0%, #181010 100%);
+}
+
+@theme {
+  --color-page: var(--hf-page);
+  --color-fg: var(--hf-fg);
+  --color-muted: var(--hf-muted);
+  --color-brand: var(--hf-brand);
+  --color-brand-hover: var(--hf-brand-hover);
+  --color-surface: var(--hf-surface);
+  --color-surface-2: var(--hf-surface-2);
+  --color-border: var(--hf-border);
+  --color-grid: var(--hf-grid);
+  --color-success: var(--hf-success);
+  --color-warning: var(--hf-warning);
+  --color-teal: var(--hf-teal);
+  --color-disabled: var(--hf-disabled);
+  --color-bg-orange: var(--hf-bg-orange);
+  --color-orange: var(--hf-orange);
+}
+
+@layer base {
+  html {
+    @apply bg-page text-fg;
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+@layer utilities {
+  .hf-gradient-hero {
+    background-image: var(--hf-gradient-hero);
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  .hf-gradient-darkpanel {
+    background-image: var(--hf-gradient-darkpanel);
+  }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+  /* Typography tokens (replacing bracket-based var classes) */
+  .hf-heading-h1 {
+    @apply text-4xl font-semibold tracking-tight;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  .hf-heading-h2 {
+    @apply text-2xl font-semibold tracking-tight;
+  }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  .hf-heading-h3 {
+    @apply text-xl font-semibold tracking-tight;
+  }
+
+  .hf-display-xl {
+    @apply text-[64px] font-extrabold tracking-[-0.01em] leading-[72px];
+  }
+
+  .hf-display-lg {
+    @apply text-4xl font-semibold tracking-tight;
+  }
+
+  .hf-body-lg {
+    @apply text-lg leading-relaxed;
+  }
+
+  .hf-body-md {
+    @apply text-base leading-relaxed;
+  }
+
+  .hf-body-sm {
+    @apply text-sm leading-relaxed;
+  }
+
+  .hf-label {
+    @apply text-base font-semibold;
+  }
+
+  .hf-kpi {
+    @apply text-base font-semibold tabular-nums;
+  }
+
+  .hf-kpi-lg {
+    @apply text-lg font-semibold tabular-nums;
+  }
+
+  .hf-shadow-soft {
+    box-shadow: 0 8px 48px rgb(0 0 0 / 0.07);
   }
 }
