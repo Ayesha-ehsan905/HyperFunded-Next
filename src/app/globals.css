@@ -79,6 +79,8 @@ body {
   --hf-surace-card:#161B2D;
   --hf-stroke-divider:#232843;
   --hf-bg-secondary:#111423;
+  --stroke-hover: #C9CEDD;
+
 
   /* Shared component tokens */
   --hf-surface-modal: #181c2e;
@@ -113,6 +115,7 @@ body {
   --color-stroke-divider: var(--hf-stroke-divider);
   --color-bg-secondary: var(--hf-bg-secondary);
   --color-surface-modal: var(--hf-surface-modal);
+  --color-stroke-hover: var(--stroke-hover);
 }
 
 @layer base {

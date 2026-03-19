@@ -148,12 +148,12 @@ export const TestimonialsSection = () => {
           disabled={!canGoPrev}
           className={`flex h-[48px] md:h-[64px] w-[48px] md:w-[64px] items-center justify-center rounded-full text-white transition-colors ${
             !canGoPrev
-              ? "cursor-not-allowed opacity-40 border border-(--stroke-hover) bg-(--surface-modal)"
+              ? "cursor-not-allowed  border border-stroke-hover bg-surface-modal"
               : "bg-orange hover:bg-orange-hover border-none"
           }`}
           aria-label="Previous testimonial"
         >
-          <MoveLeft className="md:h-7 md:w-7 h-5 w-5 text-white" />
+          <MoveLeft className={`md:h-7 md:w-7 h-5 w-5 ${!canGoPrev ? "text-muted" : "text-white"}`} />
         </button>
 
         <button
@@ -162,12 +162,12 @@ export const TestimonialsSection = () => {
           disabled={!canGoNext}
           className={`flex h-[48px] md:h-[64px] w-[48px] md:w-[64px] items-center justify-center rounded-full text-white transition ${
             !canGoNext
-              ? "cursor-not-allowed opacity-40 border border-(--stroke-hover) bg-(--surface-modal)"
+              ? "cursor-not-allowed  border border-stroke-hover bg-surface-modal"
               : "bg-orange hover:bg-orange-hover border-none"
           }`}
           aria-label="Next testimonial"
         >
-          <MoveRight className="md:h-7 md:w-7 h-5 w-5 text-white" />
+          <MoveRight className={`md:h-7 md:w-7 h-5 w-5 ${!canGoNext ? "text-muted" : "text-white"}`} />
         </button>
       </div>
 
