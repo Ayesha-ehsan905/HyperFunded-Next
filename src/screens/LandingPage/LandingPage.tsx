@@ -12,14 +12,14 @@ export const LandingPage = () => {
   return (
     <div className="flex flex-col w-full items-start">
       <HeroSection />
-      <LogoAndContactSection />
+      {/* <LogoAndContactSection />
       <TrustedPartnersSection />
       <HowItWorksSection />
       <TestimonialsSection />
       <PricingPlansSection />
       <PerformanceAndAccountSummarySection />
       <FAQSection />
-      <FooterSection />
+      <FooterSection /> */}
     </div>
   );
 };

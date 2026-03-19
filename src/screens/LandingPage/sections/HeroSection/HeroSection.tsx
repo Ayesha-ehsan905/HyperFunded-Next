@@ -8,6 +8,10 @@ import {
   toggleTheme,
   type Theme,
 } from "../../../../lib/theme";
+import Image from "next/image";
+import logo from "../../../../../public/images/Logo.png";
+import HeroSectionImage from "../../../../../public/images/HeroSection.png";
+import HeroSectionLight from "../../../../../public/images/HeroSectionLight.png";
 
 // Navigation links data
 const navLinks = [
@@ -36,8 +40,10 @@ export const HeroSection = () => {
   return (
     <section className="relative w-full hf-gradient-hero overflow-hidden">
       {/* Background decorative SVG */}
-      <img
+      <Image
         className="absolute top-0 left-[439px] w-[1042px] h-[722px] pointer-events-none"
+        width={1042}
+        height={722}
         alt="Bg"
         src={isDark ? "/images/DarkBG.png" : "/images/LightBG.png"}
       />
@@ -46,13 +52,16 @@ export const HeroSection = () => {
       <nav className=" w-full flex items-center justify-center gap-12 px-20 py-5 border-t-[1.5px] border-b-[1.5px] border-border">
         {/* Logo */}
         <div className="inline-flex items-center gap-2 shrink-0">
-          <img className="" alt="Vector" src="/images/Logo.png" />
+          <Image src={logo} alt="Logo" />
         </div>
 
         {/* Nav Links */}
         <div className="flex items-center justify-center gap-6 flex-1">
           {navLinks.map((link) => (
-            <span className="inline-flex items-center justify-center gap-6 ">
+            <span
+              key={link.label}
+              className="inline-flex items-center justify-center gap-6 "
+            >
               <span className=" cursor-pointer hf-label text-muted whitespace-nowrap  px-4 py-3 hover:bg-bg-orange  hover:text-orange transition-colors rounded-full">
                 {link.label}
               </span>
@@ -71,7 +80,9 @@ export const HeroSection = () => {
             }
             className=" cursor-pointer flex w-12 h-12 items-center justify-center gap-2.5 p-2 bg-surface rounded-3xl border border-solid border-border"
           >
-            <img
+            <Image
+              width={32}
+              height={32}
               className="w-8 h-8"
               alt={isDark ? "Moon" : "Sun"}
               src={isDark ? "/images/moon.png" : "/images/sun.png"}
@@ -79,7 +90,7 @@ export const HeroSection = () => {
           </button>
 
           {/* Divider */}
-          {/* <img className="w-0.5 h-[38px]" alt="Line" src="/line-9-1.svg" /> */}
+          {/* <Image className="w-0.5 h-[38px]" alt="Line" src="/line-9-1.svg" /> */}
           <span className="w-0.5 h-[38px] bg-disabled"></span>
 
           {/* CTA Button */}
@@ -87,7 +98,13 @@ export const HeroSection = () => {
             <span className="font-semibold text-white text-base tracking-[0] leading-5">
               Start Your Challenge
             </span>
-            <img className="h-7 w-7" alt="Icon wrap" src="/images/arrow.png" />
+            <Image
+              width={28}
+              height={28}
+              className="h-7 w-7"
+              alt="Icon wrap"
+              src="/images/arrow.png"
+            />
           </button>
         </div>
       </nav>
@@ -108,11 +125,13 @@ export const HeroSection = () => {
                 </h1>
               </div>
               {/* Decorative underline vector */}
-              <img
+              {/* <Image
+                width={100}
+                height={100}
                 className="absolute w-[23.00%] h-[3.60%] top-[46.68%] left-[56.85%] pointer-events-none"
                 alt="Vector"
                 src="/images/Vector.png"
-              />
+              /> */}
             </div>
 
             {/* Subtitle */}
@@ -129,7 +148,9 @@ export const HeroSection = () => {
           <div className="flex items-center justify-center gap-4 w-full">
             {/* Watch How it Works */}
             <button className="inline-flex items-center justify-center gap-2 p-4 rounded-[999px] border border-solid border-fg">
-              <img
+              <Image
+                width={24}
+                height={24}
                 className="w-6 h-6"
                 alt="Video new"
                 src="/images/videoIcon.svg"
@@ -144,10 +165,22 @@ export const HeroSection = () => {
               <span className=" font-semibold text-white text-base tracking-[0] leading-5">
                 Start Your Challenge
               </span>
-              <img className="" alt="Icon wrap" src="/images/arrow.png" />
+              <Image
+                width={28}
+                height={28}
+                className=""
+                alt="Icon wrap"
+                src="/images/arrow.png"
+              />
             </button>
           </div>
         </div>
+      </div>
+      <div className="flex items-start gap-8 w-full justify-center">
+        <Image
+          src={isDark ? HeroSectionImage : HeroSectionLight}
+          alt="Hero Section"
+        />
       </div>
     </section>
   );
@@ -188,7 +221,7 @@ export const HeroSection = () => {
 //           ))}
 //           {/* Calendar icon */}
 //           <div className="inline-flex flex-col items-start p-2">
-//             <img
+//             <Image
 //               className="w-4 h-4"
 //               alt="Calendar"
 //               src="/calendar.svg"
@@ -198,7 +231,7 @@ export const HeroSection = () => {
 //       </div>
 
 //       {/* Divider */}
-//       <img className="w-full h-px" alt="Line" src="/line-9.svg" />
+//       <Image className="w-full h-px" alt="Line" src="/line-9.svg" />
 
 //       {/* Legend */}
 //       <div className="flex items-center justify-end gap-2 w-full">
@@ -236,7 +269,7 @@ export const HeroSection = () => {
 //             </div>
 //             <div className="absolute h-[calc(100%_-_25px)] top-0 left-[50.00%] w-px bg-grid" />
 //             <div className="absolute w-[84.38%] h-[31.48%] top-[59.37%] left-[9.78%]">
-//               <img
+//               <Image
 //                 className="absolute top-[18px] left-3 w-0.5 h-[88px]"
 //                 alt="Line"
 //                 src="/line-3.svg"
@@ -288,14 +321,14 @@ export const HeroSection = () => {
 //           </div>
 
 //           {/* Green chart line */}
-//           <img
+//           <Image
 //             className="absolute w-[94.40%] h-[64.69%] top-[4.29%] left-[2.80%]"
 //             alt="Green"
 //             src="/green.svg"
 //           />
 
 //           {/* Orange chart line */}
-//           <img
+//           <Image
 //             className="absolute top-[-22px] -left-1.5 w-[617px] h-[274px]"
 //             alt="Orange"
 //             src="/orange.svg"
@@ -323,7 +356,7 @@ export const HeroSection = () => {
 
 //         {/* Tooltip */}
 //         <div className="absolute top-[-21px] left-[272px] w-[154px] h-[82px]">
-//           <img
+//           <Image
 //             className="absolute w-[81.82%] h-[65.85%] top-0 left-0"
 //             alt="Tooltip"
 //             src="/tooltip.png"
@@ -352,7 +385,7 @@ export const HeroSection = () => {
 //     {/* Social proof card */}
 //     <Card className="flex max-w-[484px] w-full items-center gap-4 px-6 py-4 bg-page rounded-xl border border-solid border-border">
 //       <CardContent className="p-0 flex items-center gap-4 w-full">
-//         <img
+//         <Image
 //           className="w-[147.83px] h-[49.64px] flex-shrink-0"
 //           alt="Image group"
 //           src="/image-group.svg"
@@ -372,7 +405,7 @@ export const HeroSection = () => {
 //         <div className="flex flex-col items-start gap-4 w-full">
 //           {/* Icon */}
 //           <div className="flex w-10 h-10 items-center justify-center gap-2.5 p-1.5 bg-success/20 rounded-lg border border-solid border-success">
-//             <img
+//             <Image
 //               className="w-6 h-6"
 //               alt="Dollar circle"
 //               src="/dollar-circle.svg"
@@ -395,7 +428,7 @@ export const HeroSection = () => {
 //           <span className="flex-1 hf-body-sm text-success text-right">
 //             +8.57%
 //           </span>
-//           <img
+//           <Image
 //             className="w-6 h-6"
 //             alt="Only graph"
 //             src="/only-graph.svg"
