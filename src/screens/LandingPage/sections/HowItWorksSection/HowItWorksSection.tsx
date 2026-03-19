@@ -58,7 +58,7 @@ const pricingPlans = [
 
 export const HowItWorksSection = () => {
   return (
-    <section className="flex flex-col items-center justify-center gap-12 sectionSpacing self-stretch w-full">
+    <section className="flex flex-col items-center justify-center gap-12 sectionSpacing self-stretch w-full" id="pricing">
       {/* Header */}
       <div className="pt-0 pb-6 px-0 flex flex-col items-start gap-6 self-stretch w-full">
         {/* Section label */}

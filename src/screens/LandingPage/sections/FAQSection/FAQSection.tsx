@@ -11,7 +11,7 @@ export const FAQSection = () => {
   const { theme } = useTheme();
   const [email, setEmail] = useState("");
   return (
-    <section className="flex flex-col items-center justify-center gap-12 px-60 py-20 w-full ">
+    <section className="flex flex-col items-center justify-center gap-12 px-60 py-20 w-full " id="contact-us">
       {/* Inner card with gradient background */}
       <div className="relative flex flex-col items-center justify-center px-8 py-20 rounded-2xl overflow-hidden hf-gradient-hero w-full">
         {/* Background decorative image */}
@@ -55,7 +55,7 @@ export const FAQSection = () => {
           {/* Email input with Send button */}
           <div className="relative flex items-center w-full max-w-[434px]">
             {/* Input field */}
-            <div className="flex-1 bg-surface rounded-[47px] overflow-hidden border-2 border-solid border-border hf-shadow-soft">
+            <div className="flex-1 bg-surace-card rounded-[47px] overflow-hidden border-2 border-solid border-border hf-shadow-soft" >
               <Input
                 className="bg-transparent border-none outline-none px-6 py-[18px] h-auto hf-body-md text-muted placeholder:text-muted focus-visible:ring-0 focus-visible:ring-offset-0 pr-[130px]"
                 placeholder="Enter your email"

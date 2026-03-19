@@ -14,7 +14,7 @@ import Image from "next/image";
 export const TrustedPartnersSection = () => {
   const { theme } = useTheme();
   return (
-    <section className="flex flex-col items-center justify-center gap-12 sectionSpacing w-full px-6 lg:px-20">
+    <section className="flex flex-col items-center justify-center gap-12 sectionSpacing w-full px-6 lg:px-20 " id="how-it-works">
       {/* Header */}
       <div className="flex flex-col items-center gap-4 w-full max-w-[1440px] mx-auto">
         <p className="hf-section-title text-center w-full">How it Works</p>

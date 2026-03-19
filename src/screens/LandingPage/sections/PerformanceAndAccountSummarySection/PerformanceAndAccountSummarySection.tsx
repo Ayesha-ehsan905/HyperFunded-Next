@@ -48,7 +48,7 @@ export const PerformanceAndAccountSummarySection = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center gap-12 sectionSpacing self-stretch w-full">
+    <section className="flex flex-col items-center justify-center gap-12 sectionSpacing self-stretch w-full" id="faqs">
       <div className="flex items-start gap-16 self-stretch w-full">
         {/* Left column */}
         <div className="flex flex-col items-start gap-8 flex-1">

@@ -1,20 +1,9 @@
-"use client";
+ "use client";
 
 import { useTheme } from "../../../../lib/theme-context";
 import Image from "next/image";
-import logo from "../../../../../public/images/Logo.png";
 import HeroSectionImage from "../../../../../public/images/HeroSection.png";
 import HeroSectionLight from "../../../../../public/images/HeroSectionLight.png";
-
-// Navigation links data
-const navLinks = [
-  { label: "How It Works" },
-  { label: "Pricing" },
-  { label: "Testimonials" },
-  { label: "Leaderboard" },
-  { label: "FAQ's" },
-  { label: "Contact Us" },
-];
 
 // Chart time period options
 // const timePeriods = ["7D", "14D", "1M", "3M"];
@@ -23,7 +12,7 @@ export const HeroSection = () => {
   const { toggle, theme } = useTheme();
 
   return (
-    <section className="relative w-full hf-gradient-hero overflow-hidden">
+    <section className="relative w-full hf-gradient-hero overflow-hidden ">
       {/* Background decorative SVG */}
       <Image
         className="absolute top-0 left-[439px] w-[1042px] h-[722px] pointer-events-none"
@@ -34,77 +23,12 @@ export const HeroSection = () => {
         suppressHydrationWarning
       />
 
-      <nav
-        className="w-full flex items-center justify-center border-t-[1.5px] border-b-[1.5px] border-border
-    px-10 md:px-16 lg:px-20 py-4 md:py-5"
-      >
-        {/* Logo */}
-        <div className="inline-flex items-center gap-2 shrink-0">
-          <Image src={logo} alt="Logo" className="h-10 md:h-12" />
-        </div>
-
-        {/* Nav Links */}
-        <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 flex-1">
-          {navLinks.map((link) => (
-            <span
-              key={link.label}
-              className="inline-flex items-center justify-center"
-            >
-              <span
-                className="cursor-pointer hf-label text-muted whitespace-nowrap px-3 sm:px-4 py-2 sm:py-3 
-          hover:bg-bg-orange hover:text-orange transition-colors rounded-full text-sm sm:text-base"
-              >
-                {link.label}
-              </span>
-            </span>
-          ))}
-        </div>
-
-        {/* Right side actions */}
-        <div className="inline-flex items-center gap-4 sm:gap-6 md:gap-8 shrink-0">
-          {/* Theme toggle */}
-          <button
-            type="button"
-            onClick={toggle}
-            aria-label={
-              theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
-            }
-            className="flex w-10 h-10 sm:w-12 sm:h-12 items-center justify-center p-2 bg-surface rounded-3xl border border-solid border-border"
-          >
-            <Image
-              width={32}
-              height={32}
-              className="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer"
-              alt={theme === "dark" ? "Moon" : "Sun"}
-              src={theme === "dark" ? "/images/moon.png" : "/images/sun.png"}
-            />
-          </button>
-
-          {/* Divider */}
-          <span className="w-0.5 h-8 sm:h-[38px] bg-disabled"></span>
-
-          {/* CTA Button */}
-          <button className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 sm:py-4 bg-brand hover:bg-brand-hover rounded-full transition-colors">
-            <span className="font-semibold text-white text-sm sm:text-base leading-5">
-              Start Your Challenge
-            </span>
-            <Image
-              width={24}
-              height={24}
-              className="w-6 h-6 sm:w-7 sm:h-7"
-              alt="Icon wrap"
-              src="/images/arrow.png"
-            />
-          </button>
-        </div>
-      </nav>
-
       {/* Hero Content */}
       <div className="relative z-10 w-full flex flex-col items-center justify-center gap-12 px-60 py-0 pt-[60px] pb-[80px]">
         {/* Headline + CTA section */}
         <div className="max-w-[876px] w-full flex flex-col items-center gap-12">
           {/* Headline */}
-          <div className="flex flex-col gap-6 items-center justify-center w-full">
+          <div className="flex flex-col gap-6 items-center justify-center w-full mt-[82px]">
             <div className="flex items-center justify-center relative w-full">
               <div className="flex flex-col items-center flex-1">
                 <h1 className="hf-display-xl text-fg text-center whitespace-nowrap h-[86px] flex items-center justify-center">

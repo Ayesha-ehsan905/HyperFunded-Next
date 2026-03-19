@@ -197,7 +197,7 @@ export const TestimonialsSection = () => {
   }, [activeIndex, visibleCount, base]);
 
   return (
-    <section className="flex flex-col items-center justify-center gap-12 sectionSpacing self-stretch w-full">
+    <section className="flex flex-col items-center justify-center gap-12 sectionSpacing self-stretch w-full" id="testimonials">
       {/* Section header */}
       <div className="flex flex-col items-start gap-6 self-stretch w-full">
         {/* Label */}

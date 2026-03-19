@@ -26,7 +26,7 @@ const traders = [
 
 export const PricingPlansSection = () => {
   return (
-    <section className="flex flex-col items-center justify-center gap-12 sectionSpacing self-stretch w-full">
+    <section className="flex flex-col items-center justify-center gap-12 sectionSpacing self-stretch w-full" id="leaderboard">
       {/* Header */}
       <div className="flex flex-col items-start gap-6 self-stretch w-full">
         <p className="flex items-center justify-center self-stretch hf-section-title">

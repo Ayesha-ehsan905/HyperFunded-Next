@@ -1,3 +1,5 @@
+ "use client";
+
 import { Separator } from "../../../../components/ui/separator";
 import Image from "next/image";
 import logo from "../../../../../public/images/Logo.png";
@@ -6,22 +8,50 @@ import twitter from "../../../../../public/images/twitter.svg";
 import instagram from "../../../../../public/images/instagram.svg";
 import linkedin from "../../../../../public/images/linkedin.svg";
 
+type FooterLink = {
+  label: string;
+  targetId?: string;
+};
 
 // Navigation link columns data
-const footerColumns = [
+const footerColumns: {
+  title: string;
+  links: FooterLink[];
+}[] = [
   {
     title: "Product",
-    links: ["How It Works", "Pricing", "Leaderboard"],
+    links: [
+      { label: "How It Works", targetId: "how-it-works" },
+      { label: "Pricing", targetId: "pricing" },
+      { label: "Leaderboard", targetId: "leaderboard" },
+    ],
   },
   {
     title: "Support & Programs",
-    links: ["FAQ's", "Contact Us", "Help Center"],
+    links: [
+      { label: "FAQ's", targetId: "faqs" },
+      { label: "Contact Us", targetId: "contact-us" },
+      // Map Help Center to FAQs for now
+      { label: "Help Center",  },
+    ],
   },
   {
     title: "Legal",
-    links: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
+    links: [
+      { label: "Privacy Policy" },
+      { label: "Terms of Service" },
+      { label: "Cookie Policy" },
+    ],
   },
 ];
+
+const scrollToSection = (targetId?: string) => {
+  if (!targetId || typeof document === "undefined") return;
+  const element = document.getElementById(targetId);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
 
 export const FooterSection = () => {
   return (
@@ -76,11 +106,12 @@ export const FooterSection = () => {
               {/* Column links */}
               {column.links.map((link) => (
                 <div
-                  key={link}
+                  key={link.label}
+                  onClick={() => scrollToSection(link.targetId)}
                   className="flex items-center justify-center gap-2.5 self-stretch w-full cursor-pointer"
                 >
                   <span className="flex-1 font-medium text-muted text-[16px] tracking-[-0.01em] leading-[24px] hover:text-fg transition-colors">
-                    {link}
+                    {link.label}
                   </span>
                 </div>
               ))}
