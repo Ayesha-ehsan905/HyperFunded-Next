@@ -40,21 +40,21 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   return (
-    <section className="flex flex-col items-center justify-center gap-12 px-60 py-[120px] self-stretch w-full bg-[#0d0f17]">
+    <section className="flex flex-col items-center justify-center gap-12 sectionSpacing self-stretch w-full">
       {/* Section header */}
       <div className="flex flex-col items-start gap-6 self-stretch w-full">
         {/* Label */}
-        <div className="flex items-center justify-center self-stretch font-body-semobold20 font-[number:var(--body-semobold20-font-weight)] text-[#ff5a44] text-[length:var(--body-semobold20-font-size)] text-center tracking-[var(--body-semobold20-letter-spacing)] leading-[var(--body-semobold20-line-height)] [font-style:var(--body-semobold20-font-style)]">
+        <div className="flex items-center justify-center self-stretch hf-section-title">
           Testimonials
         </div>
 
         {/* Title and subtitle */}
         <div className="flex flex-col items-center gap-4 self-stretch w-full">
-          <h2 className="flex items-center justify-center self-stretch font-display-large font-[number:var(--display-large-font-weight)] text-[#f0f0f0] text-[length:var(--display-large-font-size)] text-center tracking-[var(--display-large-letter-spacing)] leading-[var(--display-large-line-height)] [font-style:var(--display-large-font-style)]">
+          <h2 className="flex items-center justify-center self-stretch hf-section-heading">
             Traders Who Got Funded
           </h2>
 
-          <p className="self-stretch font-body-semobold20 font-[number:var(--body-semobold20-font-weight)] text-[#8a8fa8] text-[length:var(--body-semobold20-font-size)] text-center tracking-[var(--body-semobold20-letter-spacing)] leading-[var(--body-semobold20-line-height)] [font-style:var(--body-semobold20-font-style)]">
+          <p className="self-stretch hf-section-subtitle">
             Real traders. Real payouts. Real results.
           </p>
         </div>

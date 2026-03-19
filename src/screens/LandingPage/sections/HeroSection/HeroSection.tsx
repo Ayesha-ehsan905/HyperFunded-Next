@@ -1,13 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-// import { Card, CardContent } from "../../../../components/ui/card";
-import {
-  applyTheme,
-  getInitialTheme,
-  toggleTheme,
-  type Theme,
-} from "../../../../lib/theme";
+import { useTheme } from "../../../../lib/theme-context";
 import Image from "next/image";
 import logo from "../../../../../public/images/Logo.png";
 import HeroSectionImage from "../../../../../public/images/HeroSection.png";
@@ -27,15 +20,7 @@ const navLinks = [
 // const timePeriods = ["7D", "14D", "1M", "3M"];
 
 export const HeroSection = () => {
-  // const [selectedPeriod, setSelectedPeriod] = useState("7D");
-  const [theme, setTheme] = useState<Theme>(() => getInitialTheme());
-
-  useEffect(() => {
-    applyTheme(theme);
-  }, [theme]);
-
-  const onToggleTheme = () => setTheme((t) => toggleTheme(t));
-  const isDark = theme === "dark";
+  const { toggle, isDark } = useTheme();
 
   return (
     <section className="relative w-full hf-gradient-hero overflow-hidden">
@@ -74,7 +59,7 @@ export const HeroSection = () => {
           {/* Theme toggle */}
           <button
             type="button"
-            onClick={onToggleTheme}
+            onClick={toggle}
             aria-label={
               isDark ? "Switch to light theme" : "Switch to dark theme"
             }
@@ -125,13 +110,13 @@ export const HeroSection = () => {
                 </h1>
               </div>
               {/* Decorative underline vector */}
-              {/* <Image
+              <Image
                 width={100}
                 height={100}
-                className="absolute w-[23.00%] h-[3.60%] top-[46.68%] left-[56.85%] pointer-events-none"
+                className="absolute w-[24%] h-[7%] top-[46.68%] left-[56.85%] pointer-events-none"
                 alt="Vector"
                 src="/images/Vector.png"
-              /> */}
+              />
             </div>
 
             {/* Subtitle */}
@@ -166,8 +151,8 @@ export const HeroSection = () => {
                 Start Your Challenge
               </span>
               <Image
-                width={28}
-                height={28}
+                width={40}
+                height={39}
                 className=""
                 alt="Icon wrap"
                 src="/images/arrow.png"
@@ -176,7 +161,7 @@ export const HeroSection = () => {
           </div>
         </div>
       </div>
-      <div className="flex items-start gap-8 w-full justify-center">
+      <div className="flex items-start gap-8 w-full justify-center pb-[80px]">
         <Image
           src={isDark ? HeroSectionImage : HeroSectionLight}
           alt="Hero Section"
