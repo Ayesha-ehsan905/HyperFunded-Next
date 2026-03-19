@@ -69,17 +69,17 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 z-50 w-full flex items-center justify-center border-t-[1.5px] border-b-[1.5px] border-border px-10 md:px-16 lg:px-20 py-4 md:py-5 transition-colors ${
+      className={`fixed top-0 left-0 z-50 w-full flex items-center justify-center border-t-[1.5px] border-b-[1.5px] border-border px-10 md:px-10 2xl:px-20 py-4 md:py-4 transition-colors ${
         isScrolled ? "bg-page/90 backdrop-blur" : "bg-transparent"
       }`}
     >
       {/* Logo */}
       <div className="inline-flex items-center gap-2 shrink-0">
-        <Image src={logo} alt="Logo" className="h-10 md:h-12" />
+        <Image src={logo} alt="Logo" className="" />
       </div>
 
       {/* Nav Links */}
-      <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 flex-1">
+      <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-4 2xl:gap-8 flex-1">
         {NAV_LINKS.map((link) => (
           <button
             key={link.label}

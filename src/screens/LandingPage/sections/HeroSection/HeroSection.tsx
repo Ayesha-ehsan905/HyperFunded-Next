@@ -2,8 +2,8 @@
 
 import { useTheme } from "../../../../lib/theme-context";
 import Image from "next/image";
-import HeroSectionImage from "../../../../../public/images/HeroSection.png";
-import HeroSectionLight from "../../../../../public/images/HeroSectionLight.png";
+import HeroSectionImage from "../../../../../public/images/Asset Hero - Dark.png";
+import HeroSectionLight from "../../../../../public/images/Asset Hero -Light.png";
 import { HERO_CONTENT } from "../../utils/constants";
 
 // Chart time period options
@@ -92,6 +92,7 @@ export const HeroSection = () => {
       <div className="flex items-start gap-8 w-full justify-center pb-[80px]">
         <Image
           src={theme === "dark" ? HeroSectionImage : HeroSectionLight}
+          className="w-[1200px] h-full"
           alt="Hero Section"
           suppressHydrationWarning
         />

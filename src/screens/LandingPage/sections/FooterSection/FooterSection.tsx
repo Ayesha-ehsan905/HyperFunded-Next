@@ -1,13 +1,18 @@
- "use client";
+"use client";
 
 import { Separator } from "../../../../components/ui/separator";
 import Image from "next/image";
 import logo from "../../../../../public/images/Logo.png";
 import facebook from "../../../../../public/images/facebook.svg";
 import twitter from "../../../../../public/images/twitter.svg";
-import instagram from "../../../../../public/images/instagram.svg";
-import linkedin from "../../../../../public/images/linkedin.svg";
+import instagram from "../../../../../public/images/insta.svg";
+import linkedin from "../../../../../public/images/linked.svg";
+import facebooklight from "../../../../../public/images/facebookLight.svg";
+import twitterlight from "../../../../../public/images/twitterLight.svg";
+import instagramlight from "../../../../../public/images/instaLight.svg";
+import linkedinlight from "../../../../../public/images/linkedLight.svg";
 import { FOOTER_COLUMNS } from "../../utils/constants";
+import { useTheme } from "@/lib/theme-context";
 
 const scrollToSection = (targetId?: string) => {
   if (!targetId || typeof document === "undefined") return;
@@ -18,6 +23,7 @@ const scrollToSection = (targetId?: string) => {
 };
 
 export const FooterSection = () => {
+  const {  theme } = useTheme();
   return (
     <footer className="flex flex-col w-full items-start gap-6 pt-20 pb-6 px-16 xl:px-60 bg-page">
       {/* Main footer content row */}
@@ -46,10 +52,18 @@ export const FooterSection = () => {
 
           {/* Social icons */}
           <div className="flex items-center gap-2 self-stretch w-full">
-            <Image src={facebook} alt="Facebook" />
-            <Image src={twitter} alt="Twitter" />
-            <Image src={instagram} alt="Instagram" />
-            <Image src={linkedin} alt="Linkedin" />
+            <div className="px-2 py-2 bg-surface-modal border border-border rounded-full hover:border-orange hover:bg-orange transition-all duration-300">
+              <Image src={theme === "dark" ? facebook : facebooklight} alt="Facebook" />
+            </div>
+            <div className="px-2 py-2 bg-surface-modal border border-border rounded-full hover:border-orange hover:bg-orange transition-all duration-300">
+              <Image src={theme === "dark" ? twitter : twitterlight} alt="Twitter" />
+            </div>
+            <div className="px-2 py-2 bg-surface-modal border border-border rounded-full hover:border-orange hover:bg-orange transition-all duration-300">
+              <Image src={theme === "dark" ? instagram : instagramlight} alt="Instagram" />
+            </div>
+            <div className="px-2 py-2 bg-surface-modal border border-border rounded-full hover:border-orange hover:bg-orange transition-all duration-300">
+              <Image src={theme === "dark" ? linkedin : linkedinlight} alt="Linkedin" />
+            </div>
           </div>
         </div>
 
