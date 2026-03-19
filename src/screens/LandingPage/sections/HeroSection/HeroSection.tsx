@@ -73,7 +73,7 @@ export const HeroSection = () => {
             <Image
               width={32}
               height={32}
-              className="w-6 h-6 sm:w-8 sm:h-8"
+              className="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer"
               alt={isDark ? "Moon" : "Sun"}
               src={isDark ? "/images/moon.png" : "/images/sun.png"}
             />

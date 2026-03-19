@@ -16,9 +16,9 @@ export const LandingPage = () => {
       <TrustedPartnersSection />
       <HowItWorksSection />
       <TestimonialsSection />
-      {/*<PricingPlansSection />
+      <PricingPlansSection />
       <PerformanceAndAccountSummarySection />
-      <FAQSection />
+      {/*<FAQSection />
       <FooterSection /> */}
     </div>
   );

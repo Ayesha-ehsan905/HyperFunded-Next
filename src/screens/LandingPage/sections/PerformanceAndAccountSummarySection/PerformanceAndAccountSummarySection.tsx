@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "../../../../components/ui/button";
 import { Separator } from "../../../../components/ui/separator";
+import Image from "next/image";
+import { Plus, Minus } from "lucide-react";
 
 // FAQ data
 const faqItems = [
@@ -47,17 +48,17 @@ export const PerformanceAndAccountSummarySection = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center gap-12 px-16 py-[120px] self-stretch w-full bg-[#0d0f17]">
+    <section className="flex flex-col items-center justify-center gap-12 sectionSpacing self-stretch w-full">
       <div className="flex items-start gap-16 self-stretch w-full">
         {/* Left column */}
         <div className="flex flex-col items-start gap-8 flex-1">
           <div className="flex flex-col items-start gap-[19px] self-stretch w-full">
-            <h1 className="self-stretch font-heading-h1 font-[number:var(--heading-h1-font-weight)] text-[#f0f0f0] text-[length:var(--heading-h1-font-size)] tracking-[var(--heading-h1-letter-spacing)] leading-[var(--heading-h1-line-height)] [font-style:var(--heading-h1-font-style)]">
+            <h1 className="self-stretch font-bold text-fg text-[36px] tracking-[-0.01em] leading-[44px]">
               We&apos;re Here to Answer <br />
               All Your Questions
             </h1>
 
-            <p className="font-body-large-regular font-[number:var(--body-large-regular-font-weight)] text-[#8a8fa8] text-[length:var(--body-large-regular-font-size)] tracking-[var(--body-large-regular-letter-spacing)] leading-[var(--body-large-regular-line-height)] self-stretch [font-style:var(--body-large-regular-font-style)]">
+            <p className="self-stretch text-muted font-normal text-[18px]  leading-[28px]">
               Find clear answers to the most common questions about Hyperfunded.
               Learn how our challenges, rules, and payouts work. Everything you
               need to start trading with confidence.
@@ -65,18 +66,23 @@ export const PerformanceAndAccountSummarySection = () => {
           </div>
 
           <div className="flex flex-col items-start gap-6 self-stretch w-full">
-            <p className="font-body-semobold20 font-[number:var(--body-semobold20-font-weight)] text-[#f0f0f0] text-[length:var(--body-semobold20-font-size)] tracking-[var(--body-semobold20-letter-spacing)] leading-[var(--body-semobold20-line-height)] self-stretch [font-style:var(--body-semobold20-font-style)]">
+            <p className="self-stretch font-semibold text-fg text-[20px] tracking-[-0.01em] leading-[28px]">
               Still have questions?
             </p>
 
             <Separator className="bg-[#2a2d3e] h-px w-full" />
-
-            <Button className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-[#ff5a44] rounded-[999px] hover:bg-[#e04e3a] h-auto">
-              <span className="[font-family:'Inter',Helvetica] font-semibold text-white text-base tracking-[0] leading-5">
-                Contact Support
+            <button className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-brand hover:bg-brand-hover rounded-[999px] transition-colors">
+              <span className=" font-semibold text-white text-base tracking-[0] leading-5">
+                Start Your Challenge
               </span>
-              <img className="w-10" alt="Icon wrap" src="/icon-wrap.svg" />
-            </Button>
+              <Image
+                width={40}
+                height={39}
+                className=""
+                alt="Icon wrap"
+                src="/images/arrow.png"
+              />
+            </button>
           </div>
         </div>
 
@@ -87,11 +93,11 @@ export const PerformanceAndAccountSummarySection = () => {
             return (
               <div
                 key={item.id}
-                className="relative self-stretch w-full bg-[#181c2e] rounded-xl overflow-hidden"
+                className="relative self-stretch w-full bg-surface-modal rounded-xl overflow-hidden"
               >
                 {/* Red bottom border indicator for open item */}
                 {isOpen && (
-                  <div className="absolute w-full left-0 bottom-0 h-0.5 bg-[#ff5a44] z-10" />
+                  <div className="absolute w-full left-0 bottom-0 h-0.5 bg-orange z-10" />
                 )}
 
                 <button
@@ -99,27 +105,19 @@ export const PerformanceAndAccountSummarySection = () => {
                   onClick={() => handleToggle(item.id)}
                   aria-expanded={isOpen}
                 >
-                  <span className="flex items-center flex-1 font-body-semobold20 font-[number:var(--body-semobold20-font-weight)] text-[#f0f0f0] text-[length:var(--body-semobold20-font-size)] tracking-[var(--body-semobold20-letter-spacing)] leading-[var(--body-semobold20-line-height)] [font-style:var(--body-semobold20-font-style)]">
+                  <span className="flex items-center flex-1 font-semibold text-fg text-[20px] tracking-[-0.01em] leading-[28px]">
                     {item.question}
                   </span>
                   {isOpen ? (
-                    <img
-                      className="w-6 h-6 flex-shrink-0"
-                      alt="Minus"
-                      src="/minus.svg"
-                    />
+                    <Minus className="w-5 h-5 text-fg cursor-pointer" />
                   ) : (
-                    <img
-                      className="w-6 h-6 flex-shrink-0"
-                      alt="Add"
-                      src="/add.svg"
-                    />
+                    <Plus className="w-5 h-5 text-fg cursor-pointer" />
                   )}
                 </button>
 
                 {/* Expanded content */}
                 {isOpen && item.answer && (
-                  <div className="px-8 pb-8 font-body-regular font-[number:var(--body-regular-font-weight)] text-[#8a8fa8] text-[length:var(--body-regular-font-size)] tracking-[var(--body-regular-letter-spacing)] leading-[var(--body-regular-line-height)] [font-style:var(--body-regular-font-style)]">
+                  <div className="px-8 pb-8 font-normal text-muted text-[18px] tracking-[-0.01em] leading-[28px]">
                     {item.answer}
                   </div>
                 )}

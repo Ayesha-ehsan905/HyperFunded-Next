@@ -10,103 +10,79 @@ import TargetLight from "../../../../../public/images/targetLight.svg";
 import VectorDark from "../../../../../public/images/VectorDark.png";
 import VectorLight from "../../../../../public/images/VectorLight.png";
 import Image from "next/image";
+
 export const TrustedPartnersSection = () => {
   const { theme } = useTheme();
   return (
-    <section className="flex flex-col items-center justify-center gap-12 sectionSpacing self-stretch w-full ">
+    <section className="flex flex-col items-center justify-center gap-12 sectionSpacing w-full px-6 lg:px-20">
       {/* Header */}
-      <div className="flex flex-col items-start gap-6 self-stretch w-full">
-        <p className="flex items-center justify-center self-stretch hf-section-title">
-          How it Works
+      <div className="flex flex-col items-center gap-4 w-full max-w-[1440px] mx-auto">
+        <p className="hf-section-title text-center w-full">How it Works</p>
+        <h2 className="hf-section-heading text-center w-full">
+          Get Funded In Three Simple Steps
+        </h2>
+        <p className="hf-section-subtitle text-center w-full">
+          Three simple steps to start trading with our capital
         </p>
-
-        <div className="flex flex-col items-center gap-4 self-stretch w-full">
-          <h2 className="flex items-center justify-center self-stretch hf-section-heading">
-            Get Funded In Three Simple Steps
-          </h2>
-
-          <p className="self-stretch hf-section-subtitle">
-            Three simple steps to start trading with our capital
-          </p>
-        </div>
       </div>
 
       {/* Steps container */}
-      <div className="relative self-stretch w-full h-[379px]">
+      <div className="relative flex flex-wrap justify-center gap-8 w-full max-w-[1440px] mx-auto h-[380px] lg:h-[379px]">
         {/* Connecting vector line */}
         <Image
-          className="absolute top-[70px] left-[114px] w-[1221px] h-[266px]"
+          className="absolute top-[18%] left-[6%] w-[85%] h-[70%] object-contain"
           alt="Vector"
           src={theme === "dark" ? VectorDark : VectorLight}
         />
 
-        {/* Step 1 - Choose Your Challenge */}
-        <div className="flex flex-col w-[471px] items-end px-8 py-5 absolute top-[19px] left-0 rounded-[15px]">
-          {/* Large gradient number */}
+        {/* Step 1 */}
+        <div className=" flex flex-col items-center px-6 py-5 w-[30%] min-w-[280px] relative">
           <div
-            className="relative flex items-center justify-center w-[38px] h-[125px] text-center text-[120px] font-black leading-[144px] whitespace-nowrap bg-clip-text text-transparent"
+            className="relative left-[55%] text-[120px] font-black leading-[144px] text-transparent bg-clip-text text-center w-[48px] h-[125px]"
             style={{
               background:
                 "linear-gradient(180deg, rgba(255, 75, 51, 0.32) 0%, rgba(255, 75, 51, 0.12) 100%)",
-
-              // background: "linear-gradient(180deg, #7a1a1a 0%, #3a0a0a 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
           >
             1
           </div>
-
-          <div className="flex flex-col items-center gap-4 self-stretch w-full mt-[-75px]">
-            <div className="flex-col items-center justify-center gap-4 flex self-stretch w-full">
-              <span className="self-stretch mt-px font-semibold text-fg text-[28px] text-center tracking-[-0.01em] leading-[56px]">
-                Choose Your Challenge
-              </span>
-
-              <p className="w-[344px] font-normal text-muted text-[18px] text-center tracking-[-0.01em] leading-[28px]">
-                Select your account size from $10K to $200K. Pay a one-time
-                challenge fee and get instant access to your evaluation account.
-              </p>
-            </div>
-
+          <div className="flex flex-col items-center gap-4 mt-[-75px] text-center">
+            <span className="font-semibold text-fg text-[28px] leading-[56px]">
+              Choose Your Challenge
+            </span>
+            <p className="text-muted text-[18px] leading-[28px] max-w-[344px]">
+              Select your account size from $10K to $200K. Pay a one-time
+              challenge fee and get instant access to your evaluation account.
+            </p>
             <Image
               className="w-[90px] h-[90px]"
-              alt="Icon"
+              alt="Target Icon"
               src={theme === "dark" ? Target : TargetLight}
             />
           </div>
         </div>
 
-        {/* Step 2 - Pass the Evaluation */}
-        <div className="absolute top-px left-[503px] w-[471px] h-[356px] rounded-[15px]">
-          <div className="flex flex-col w-[407px] items-center gap-4 absolute top-5 left-8">
-            {/* <div className="flex w-[90px] h-[90px] items-center justify-center gap-2.5 px-3 py-[11px]"> */}
-            <Image
-              className="w-[90px] h-[90px]"
-              alt="Triangle"
-              src={theme === "dark" ? Triangle : TriangleLight}
-            />
-            {/* </div> */}
-
-            <div className="flex-col items-center justify-center gap-4 flex self-stretch w-full">
-              <span className="self-stretch mt-px font-semibold text-fg text-[28px] text-center tracking-[-0.01em] leading-[56px]">
-                Pass the Evaluation
-              </span>
-
-              <p className="w-[296px] font-normal text-muted text-[18px] text-center tracking-[-0.01em] leading-[28px]">
-                Hit your profit target while staying within risk rules. Trade
-                any crypto pair, any strategy. We measure skill, not luck.
-              </p>
-            </div>
-          </div>
-
-          {/* Large gradient number 2 */}
+        {/* Step 2 */}
+        <div className="flex flex-col items-center px-6 py-5 w-[30%] min-w-[280px] relative">
+          <Image
+            className="w-[90px] h-[90px] mb-4"
+            alt="Triangle Icon"
+            src={theme === "dark" ? Triangle : TriangleLight}
+          />
+          <span className="font-semibold text-fg text-[28px] leading-[56px] text-center">
+            Pass the Evaluation
+          </span>
+          <p className="text-muted text-[18px] leading-[28px] text-center max-w-[290px] mt-2">
+            Hit your profit target while staying within risk rules. Trade any
+            crypto pair, any strategy. We measure skill, not luck.
+          </p>
           <div
-            className="absolute top-[231px] left-[401px] text-center text-[120px] font-black leading-[144px] whitespace-nowrap bg-clip-text text-transparent"
+            className="absolute text-[120px] font-black leading-[144px] text-transparent top-[60%] left-[87%]"
             style={{
               background:
                 "linear-gradient(180deg, rgba(0, 184, 179, 0.32) 0%, rgba(0, 184, 179, 0.12) 100%)",
-
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
@@ -115,47 +91,38 @@ export const TrustedPartnersSection = () => {
           </div>
         </div>
 
-        {/* Step 3 - Get Funded & Earn */}
-        <div className="flex flex-col w-[471px] items-end px-8 py-5 absolute top-[7px] left-[1006px] rounded-[15px]">
-          {/* Large gradient number */}
+        {/* Step 3 */}
+        <div className="flex flex-col items-center px-6 py-5 w-[30%] min-w-[280px] relative">
           <div
-            className="relative flex items-center justify-center w-[68px] h-[125px] text-center text-[120px] font-black leading-[144px] whitespace-nowrap bg-clip-text text-transparent"
+            className=" relative right-[-55%] text-[120px] font-black leading-[144px] text-transparent bg-clip-text text-center w-[80px] h-[125px]"
             style={{
               background:
                 "linear-gradient(180deg, rgba(14, 171, 113, 0.32) 0%, rgba(14, 171, 113, 0.12) 100%)",
-
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
           >
             3
           </div>
-
-          <div className="flex flex-col items-center gap-4 self-stretch w-full mt-[-75px]">
-            <div className="flex-col items-center justify-center gap-4 flex self-stretch w-full pr-[20px]">
-              <span className="self-stretch mt-px font-semibold text-fg text-[28px] text-center tracking-[-0.01em] leading-[56px]">
-                Get Funded &amp; Earn
-              </span>
-
-              <p className="w-[344px] font-normal text-muted text-[18px] text-center tracking-[-0.01em] leading-[28px]">
-                Trade with real capital and receive 80-90% of your profits.
-                Withdraw anytime. Scale up to larger accounts.
-              </p>
-            </div>
-
-            {/* <div className="flex w-[90px] h-[90px] items-center justify-center gap-2.5 px-3 py-[11px] "> */}
+          <div className="flex flex-col items-center gap-4 mt-[-105px] text-center">
+            <span className="font-semibold text-fg text-[28px] leading-[56px]">
+              Get Funded &amp; Earn
+            </span>
+            <p className="text-muted text-[18px] leading-[28px] max-w-[344px]">
+              Trade with real capital and receive 80-90% of your profits. Withdraw
+              anytime. Scale up to larger accounts.
+            </p>
             <Image
               className="w-[90px] h-[90px]"
-              alt="Wallet"
+              alt="Wallet Icon"
               src={theme === "dark" ? Wallet : WalletLight}
             />
-            {/* </div> */}
           </div>
         </div>
       </div>
 
       {/* CTA Button */}
-      <div className="flex items-center justify-center gap-4 self-stretch w-full">
+      <div className="flex items-center justify-center gap-4 self-stretch w-full mt-[60px]">
         <button className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-brand hover:bg-brand-hover rounded-[999px] transition-colors">
           <span className=" font-semibold text-white text-base tracking-[0] leading-5">
             Start Your Challenge

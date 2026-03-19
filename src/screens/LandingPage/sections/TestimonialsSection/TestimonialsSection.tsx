@@ -259,7 +259,6 @@ export const TestimonialsSection = () => {
       </div>
 
       {/* Icons/logos strip */}
-      <img className="self-stretch w-full" alt="Icons" src="/icons.svg" />
     </section>
   );
 };

@@ -31,7 +31,7 @@ body {
   --hf-bg-secondary:#F7F8FB;
 
   /* Shared component tokens */
-  --surface-modal: var(--hf-surface-2);
+  --hf-surface-modal: #F9F9F9;
   --stroke-hover: #3A4170;
 
 
@@ -81,7 +81,7 @@ body {
   --hf-bg-secondary:#111423;
 
   /* Shared component tokens */
-  --surface-modal: var(--hf-surface-2);
+  --hf-surface-modal: #181c2e;
   --stroke-hover: #3A4170;
 
 
@@ -112,6 +112,7 @@ body {
   --color-surace-card: var(--hf-surace-card);
   --color-stroke-divider: var(--hf-stroke-divider);
   --color-bg-secondary: var(--hf-bg-secondary);
+  --color-surface-modal: var(--hf-surface-modal);
 }
 
 @layer base {
