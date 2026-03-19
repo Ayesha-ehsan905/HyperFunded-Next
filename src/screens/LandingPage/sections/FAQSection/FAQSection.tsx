@@ -65,7 +65,7 @@ export const FAQSection = () => {
           <div className="flex flex-col items-center gap-8 w-full">
             {/* Brand logo + name */}
             <div
-              className={`flex items-center gap-2 transform transition-all duration-1400 ease-out ${
+              className={`flex items-center gap-2 transform transition-all duration-700 ease-out ${
                 hasEntered
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 -translate-y-8"
@@ -76,7 +76,7 @@ export const FAQSection = () => {
 
             {/* Headline text */}
             <div
-              className={`flex flex-col items-center gap-2 transform transition-all duration-1400 ease-out ${
+              className={`flex flex-col items-center gap-2 transform transition-all duration-700 ease-out ${
                 hasEntered
                   ? "opacity-100 translate-y-0 delay-200"
                   : "opacity-0 -translate-y-8"
@@ -92,7 +92,7 @@ export const FAQSection = () => {
 
             {/* Description */}
             <p
-              className={`max-w-[712px] hf-body-lg text-muted text-center transform transition-all duration-1400 ease-out ${
+              className={`max-w-[712px] hf-body-lg text-muted text-center transform transition-all duration-700 ease-out ${
                 hasEntered
                   ? "opacity-100 translate-y-0 delay-400"
                   : "opacity-0 -translate-y-8"
@@ -104,7 +104,7 @@ export const FAQSection = () => {
 
           {/* Email input with Send button */}
           <div
-            className={`relative flex items-center w-full max-w-[434px] transform transition-all duration-1400 ease-out ${
+            className={`relative flex items-center w-full max-w-[434px] transform transition-all duration-700 ease-out ${
               hasEntered
                 ? "opacity-100 translate-y-0 delay-700"
                 : "opacity-0 -translate-y-8"
