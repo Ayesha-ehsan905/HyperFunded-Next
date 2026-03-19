@@ -1,6 +1,6 @@
-"use client";
+ "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "../../../../components/ui/button";
 import { Input } from "../../../../components/ui/input";
 import { useTheme } from "../../../../lib/theme-context";
@@ -10,8 +10,42 @@ import logo from "../../../../../public/images/Logo.png";
 export const FAQSection = () => {
   const { theme } = useTheme();
   const [email, setEmail] = useState("");
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [hasEntered, setHasEntered] = useState(false);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+
+    if (!node || typeof IntersectionObserver === "undefined") {
+      // Fallback: show immediately on mount
+      setTimeout(() => setHasEntered(true), 0);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setHasEntered(true);
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        threshold: 0.25,
+      },
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, []);
   return (
-    <section className="flex flex-col items-center justify-center gap-12 px-60 py-20 w-full " id="contact-us">
+    <section
+      ref={sectionRef}
+      className="flex flex-col items-center justify-center gap-12 px-60 py-20 w-full"
+      id="contact-us"
+    >
       {/* Inner card with gradient background */}
       <div className="relative flex flex-col items-center justify-center px-8 py-20 rounded-2xl overflow-hidden hf-gradient-hero w-full">
         {/* Background decorative image */}
@@ -29,13 +63,24 @@ export const FAQSection = () => {
           {/* Header section */}
           <div className="flex flex-col items-center gap-8 w-full">
             {/* Brand logo + name */}
-            <div className="flex items-center gap-2">
-            <Image src={logo} alt="Logo" className="h-10 md:h-12" />
-
+            <div
+              className={`flex items-center gap-2 transform transition-all duration-1400 ease-out ${
+                hasEntered
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 -translate-y-8"
+              }`}
+            >
+              <Image src={logo} alt="Logo" className="h-10 md:h-12" />
             </div>
 
             {/* Headline text */}
-            <div className="flex flex-col items-center gap-2">
+            <div
+              className={`flex flex-col items-center gap-2 transform transition-all duration-1400 ease-out ${
+                hasEntered
+                  ? "opacity-100 translate-y-0 delay-200"
+                  : "opacity-0 -translate-y-8"
+              }`}
+            >
               <h2 className="hf-display-lg text-fg text-center w-full">
                 Ready to Trade Our Capital?
               </h2>
@@ -45,7 +90,13 @@ export const FAQSection = () => {
             </div>
 
             {/* Description */}
-            <p className="max-w-[712px] hf-body-lg text-muted text-center">
+            <p
+              className={`max-w-[712px] hf-body-lg text-muted text-center transform transition-all duration-1400 ease-out ${
+                hasEntered
+                  ? "opacity-100 translate-y-0 delay-400"
+                  : "opacity-0 -translate-y-8"
+              }`}
+            >
               Take the challenge and prove your trading skills. Meet the targets
               while managing risk responsibly. Unlock a funded account and start
               trading with real capital.
@@ -53,7 +104,13 @@ export const FAQSection = () => {
           </div>
 
           {/* Email input with Send button */}
-          <div className="relative flex items-center w-full max-w-[434px]">
+          <div
+            className={`relative flex items-center w-full max-w-[434px] transform transition-all duration-1400 ease-out ${
+              hasEntered
+                ? "opacity-100 translate-y-0 delay-700"
+                : "opacity-0 -translate-y-8"
+            }`}
+          >
             {/* Input field */}
             <div className="flex-1 bg-surace-card rounded-[47px] overflow-hidden border-2 border-solid border-border hf-shadow-soft" >
               <Input

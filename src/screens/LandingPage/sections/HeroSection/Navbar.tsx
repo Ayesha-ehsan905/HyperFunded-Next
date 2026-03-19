@@ -30,6 +30,9 @@ const scrollToSection = (targetId?: string) => {
 export const Navbar = () => {
   const { toggle, theme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeTargetId, setActiveTargetId] = useState<string | undefined>(
+    navLinks[0]?.targetId,
+  );
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -41,6 +44,40 @@ export const Navbar = () => {
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const sectionIds = navLinks
+      .map((link) => link.targetId)
+      .filter((id): id is string => Boolean(id));
+
+    const updateActiveSection = () => {
+      // Keep some offset for fixed navbar height.
+      const scrollPosition = window.scrollY + 140;
+      let currentSectionId = sectionIds[0];
+
+      sectionIds.forEach((id) => {
+        const section = document.getElementById(id);
+        if (section && scrollPosition >= section.offsetTop) {
+          currentSectionId = id;
+        }
+      });
+
+      setActiveTargetId((prev) =>
+        prev === currentSectionId ? prev : currentSectionId,
+      );
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection);
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, []);
 
   return (
@@ -60,12 +97,18 @@ export const Navbar = () => {
           <button
             key={link.label}
             type="button"
-            onClick={() => scrollToSection(link.targetId)}
+            onClick={() => {
+              setActiveTargetId(link.targetId);
+              scrollToSection(link.targetId);
+            }}
             className="inline-flex items-center justify-center cursor-pointer"
           >
             <span
-              className="hf-label text-muted whitespace-nowrap px-3 sm:px-4 py-2 sm:py-3 
-          hover:bg-bg-orange hover:text-orange transition-colors rounded-full text-sm sm:text-base"
+              className={`hf-label whitespace-nowrap px-3 sm:px-4 py-2 sm:py-3 transition-colors rounded-full text-sm sm:text-base ${
+                activeTargetId === link.targetId
+                  ? "bg-bg-orange text-orange"
+                  : "text-muted hover:bg-bg-orange hover:text-orange"
+              }`}
             >
               {link.label}
             </span>
