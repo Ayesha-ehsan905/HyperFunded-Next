@@ -27,6 +27,12 @@ body {
   --hf-teal: #00b8b3;
   --hf-surace-card:#F9F9F9;
   --hf-stroke-divider:#EDEFF5;
+  --hf-bg-secondary:#F7F8FB;
+
+  /* Shared component tokens */
+  --surface-modal: var(--hf-surface-2);
+  --stroke-hover: #3A4170;
+
 
 
   /* Gradients */
@@ -71,6 +77,11 @@ body {
   --hf-teal: #17e6e0;
   --hf-surace-card:#161B2D;
   --hf-stroke-divider:#232843;
+  --hf-bg-secondary:#111423;
+
+  /* Shared component tokens */
+  --surface-modal: var(--hf-surface-2);
+  --stroke-hover: #3A4170;
 
 
   /* Gradients */
@@ -99,6 +110,7 @@ body {
   --color-warning-bg: var(--hf-warning-bg);
   --color-surace-card: var(--hf-surace-card);
   --color-stroke-divider: var(--hf-stroke-divider);
+  --color-bg-secondary: var(--hf-bg-secondary);
 }
 
 @layer base {
