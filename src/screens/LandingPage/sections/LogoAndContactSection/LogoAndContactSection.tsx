@@ -4,6 +4,7 @@ import brands from "../../../../../public/images/Brands.png";
 import brandsLight from "../../../../../public/images/BrandsLight.png";
 import Image from "next/image";
 import { useTheme } from "../../../../lib/theme-context";
+import { LOGO_CONTACT_CONTENT } from "../../utils/constants";
 export const LogoAndContactSection = () => {
   const { theme } = useTheme();
   return (
@@ -12,12 +13,12 @@ export const LogoAndContactSection = () => {
       <div className="flex flex-col items-center gap-6 w-full">
         {/* Subheading label */}
         <p className="flex items-center justify-center w-full mt-px hf-section-title">
-          Trusted Worldwide
+          {LOGO_CONTACT_CONTENT.title}
         </p>
 
         {/* Main heading */}
         <h2 className="flex items-center justify-center w-full hf-section-heading">
-          Over 10K+ Organizations Use Our Platform
+          {LOGO_CONTACT_CONTENT.heading}
         </h2>
       </div>
 

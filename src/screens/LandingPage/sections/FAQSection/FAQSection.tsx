@@ -6,6 +6,7 @@ import { Input } from "../../../../components/ui/input";
 import { useTheme } from "../../../../lib/theme-context";
 import Image from "next/image";
 import logo from "../../../../../public/images/Logo.png";
+import { CONTACT_SECTION_CONTENT } from "../../utils/constants";
 
 export const FAQSection = () => {
   const { theme } = useTheme();
@@ -82,10 +83,10 @@ export const FAQSection = () => {
               }`}
             >
               <h2 className="hf-display-lg text-fg text-center w-full">
-                Ready to Trade Our Capital?
+                {CONTACT_SECTION_CONTENT.titleLines[0]}
               </h2>
               <h2 className="hf-display-lg text-fg text-center whitespace-nowrap">
-                Start your funded trading journey today.
+                {CONTACT_SECTION_CONTENT.titleLines[1]}
               </h2>
             </div>
 
@@ -97,9 +98,7 @@ export const FAQSection = () => {
                   : "opacity-0 -translate-y-8"
               }`}
             >
-              Take the challenge and prove your trading skills. Meet the targets
-              while managing risk responsibly. Unlock a funded account and start
-              trading with real capital.
+              {CONTACT_SECTION_CONTENT.description}
             </p>
           </div>
 
@@ -115,7 +114,7 @@ export const FAQSection = () => {
             <div className="flex-1 bg-surace-card rounded-[47px] overflow-hidden border-2 border-solid border-border hf-shadow-soft" >
               <Input
                 className="bg-transparent border-none outline-none px-6 py-[18px] h-auto hf-body-md text-muted placeholder:text-muted focus-visible:ring-0 focus-visible:ring-offset-0 pr-[130px]"
-                placeholder="Enter your email"
+                placeholder={CONTACT_SECTION_CONTENT.inputPlaceholder}
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -124,7 +123,7 @@ export const FAQSection = () => {
 
             {/* Send button overlaid on the right side of the input */}
             <Button className="absolute right-[4px] bg-brand hover:bg-brand-hover text-white font-semibold text-base leading-5 rounded-[999px] px-8 py-3 h-auto border-none">
-              Send
+              {CONTACT_SECTION_CONTENT.sendButtonLabel}
             </Button>
           </div>
         </div>

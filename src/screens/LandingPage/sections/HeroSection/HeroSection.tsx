@@ -4,6 +4,7 @@ import { useTheme } from "../../../../lib/theme-context";
 import Image from "next/image";
 import HeroSectionImage from "../../../../../public/images/HeroSection.png";
 import HeroSectionLight from "../../../../../public/images/HeroSectionLight.png";
+import { HERO_CONTENT } from "../../utils/constants";
 
 // Chart time period options
 // const timePeriods = ["7D", "14D", "1M", "3M"];
@@ -32,10 +33,10 @@ export const HeroSection = () => {
             <div className="flex items-center justify-center relative w-full">
               <div className="flex flex-col items-center flex-1">
                 <h1 className="hf-display-xl text-fg text-center whitespace-nowrap h-[86px] flex items-center justify-center">
-                  Trade Our Capital
+                  {HERO_CONTENT.titleLines[0]}
                 </h1>
                 <h1 className="hf-display-xl text-fg text-center whitespace-nowrap h-[86px] flex items-center justify-center">
-                  Keep the Profits
+                  {HERO_CONTENT.titleLines[1]}
                 </h1>
               </div>
               {/* Decorative underline vector */}
@@ -51,9 +52,7 @@ export const HeroSection = () => {
             {/* Subtitle */}
             <div className="flex flex-col items-center px-[15px] py-0 w-full">
               <p className="hf-body-lg text-muted text-center max-w-[634px]">
-                Prove your trading skills through our structured challenges and
-                earn access to funded accounts with real capital. No monthly
-                fees. Keep 80-90% of your profits.
+                {HERO_CONTENT.subtitle}
               </p>
             </div>
           </div>
@@ -70,14 +69,14 @@ export const HeroSection = () => {
                 src="/images/videoIcon.svg"
               />
               <span className=" font-semibold text-fg text-base tracking-[0] leading-5">
-                Watch How it Works
+                {HERO_CONTENT.watchButtonLabel}
               </span>
             </button>
 
             {/* Start Your Challenge */}
             <button className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-brand hover:bg-brand-hover rounded-[999px] transition-colors">
               <span className=" font-semibold text-white text-base tracking-[0] leading-5">
-                Start Your Challenge
+                {HERO_CONTENT.ctaLabel}
               </span>
               <Image
                 width={40}

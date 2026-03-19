@@ -4,98 +4,11 @@ import { useEffect, useMemo, useState } from "react";
 import { Card, CardContent } from "../../../../components/ui/card";
 import { Separator } from "../../../../components/ui/separator";
 import { MoveLeft, MoveRight } from "lucide-react";
-
-// Testimonial data
-type Testimonial = {
-  name: string;
-  payout: string;
-  avatarSrc: string;
-  flagSrc: string;
-  flagAlt: string;
-  quote: string;
-  accountSize: string;
-  date: string;
-};
-
-const testimonials: Testimonial[] = [
-  {
-    name: "Floyd Miles",
-    payout: "$8,450",
-    avatarSrc: "/images/user1.png",
-    flagSrc: "/images/flag1.png",
-    flagAlt: "Ellipse",
-    quote:
-      "Passed the $50K challenge in 12 days. Received my first payout within 48 hours. This is legit.",
-    accountSize: "$25,000.00",
-    date: "15/03/2026",
-  },
-  {
-    name: "Darrell Steward",
-    payout: "$4,900",
-    avatarSrc: "/images/user2.png",
-    flagSrc: "/images/flag2.png",
-    flagAlt: "Ellipse",
-    quote:
-      "Clean platform, clear rules, fast payouts. Everything a funded trader needs. Already scaling to $100K account.",
-    accountSize: "$25,000.00",
-    date: "15/03/2026",
-  },
-  {
-    name: "Leslie Alexander",
-    payout: "$8,450",
-    avatarSrc: "/images/user3.png",
-    flagSrc: "/images/flag3.png",
-    flagAlt: "France",
-    quote:
-      "Passed the $50K challenge in 12 days. Received my first payout within 48 hours. This is legit.",
-    accountSize: "$25,000.00",
-    date: "15/03/2026",
-  },
-  {
-    name: "Leslie Alexander",
-    payout: "$8,450",
-    avatarSrc: "/images/user3.png",
-    flagSrc: "/images/flag3.png",
-    flagAlt: "France",
-    quote:
-      "Passed the $50K challenge in 12 days. Received my first payout within 48 hours. This is legit.",
-    accountSize: "$25,000.00",
-    date: "15/03/2026",
-  },
-  {
-    name: "Leslie Alexander",
-    payout: "$8,450",
-    avatarSrc: "/images/user3.png",
-    flagSrc: "/images/flag3.png",
-    flagAlt: "France",
-    quote:
-      "Passed the $50K challenge in 12 days. Received my first payout within 48 hours. This is legit.",
-    accountSize: "$25,000.00",
-    date: "15/03/2026",
-  },
-  {
-    name: "Leslie Alexander",
-    payout: "$8,450",
-    avatarSrc: "/images/user3.png",
-    flagSrc: "/images/flag3.png",
-    flagAlt: "France",
-    quote:
-      "Passed the $50K challenge in 12 days. Received my first payout within 48 hours. This is legit.",
-    accountSize: "$25,000.00",
-    date: "15/03/2026",
-  },
-  {
-    name: "Leslie Alexander",
-    payout: "$8,450",
-    avatarSrc: "/images/user3.png",
-    flagSrc: "/images/flag3.png",
-    flagAlt: "France",
-    quote:
-      "Passed the $50K challenge in 12 days. Received my first payout within 48 hours. This is legit.",
-    accountSize: "$25,000.00",
-    date: "15/03/2026",
-  },
-];
+import {
+  TESTIMONIALS,
+  TESTIMONIALS_CONTENT,
+  type Testimonial,
+} from "../../utils/constants";
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
   return (
@@ -105,7 +18,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
         <div className="flex items-center gap-4 self-stretch w-full">
           {/* Avatar */}
           <img
-            className="w-[50px] h-[50px]  object-cover rounded-full flex-shrink-0"
+            className="w-[50px] h-[50px]  object-cover rounded-full shrink-0"
             alt={testimonial.name}
             src={testimonial.avatarSrc}
           />
@@ -123,7 +36,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
 
           {/* Flag */}
           <img
-            className="w-[34px] h-[34px] object-cover flex-shrink-0"
+            className="w-[34px] h-[34px] object-cover shrink-0"
             alt={testimonial.flagAlt}
             src={testimonial.flagSrc}
           />
@@ -174,16 +87,16 @@ export const TestimonialsSection = () => {
     return () => window.removeEventListener("resize", updateCount);
   }, []);
 
-  const canSlide = testimonials.length > visibleCount;
-  const maxIndex = Math.max(0, testimonials.length - visibleCount);
+  const canSlide = TESTIMONIALS.length > visibleCount;
+  const maxIndex = Math.max(0, TESTIMONIALS.length - visibleCount);
   const canGoPrev = canSlide && activeIndex > 0;
   const canGoNext = canSlide && activeIndex < maxIndex;
 
   // Requirement: keep the card content static; only change the identity (name/avatar/flag).
-  const base = testimonials[0];
+  const base = TESTIMONIALS[0];
 
   const visibleTestimonials = useMemo(() => {
-    const identities = testimonials.slice(
+    const identities = TESTIMONIALS.slice(
       activeIndex,
       activeIndex + visibleCount,
     );
@@ -202,17 +115,17 @@ export const TestimonialsSection = () => {
       <div className="flex flex-col items-start gap-6 self-stretch w-full">
         {/* Label */}
         <div className="flex items-center justify-center self-stretch hf-section-title">
-          Testimonials
+          {TESTIMONIALS_CONTENT.sectionTitle}
         </div>
 
         {/* Title and subtitle */}
         <div className="flex flex-col items-center gap-4 self-stretch w-full">
           <h2 className="flex items-center justify-center self-stretch hf-section-heading">
-            Traders Who Got Funded
+            {TESTIMONIALS_CONTENT.sectionHeading}
           </h2>
 
           <p className="self-stretch hf-section-subtitle">
-            Real traders. Real payouts. Real results.
+            {TESTIMONIALS_CONTENT.sectionSubtitle}
           </p>
         </div>
       </div>

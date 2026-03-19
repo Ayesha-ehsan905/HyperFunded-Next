@@ -4,41 +4,7 @@ import { useState } from "react";
 import { Separator } from "../../../../components/ui/separator";
 import Image from "next/image";
 import { Plus, Minus } from "lucide-react";
-
-// FAQ data
-const faqItems = [
-  {
-    id: "item-1",
-    question: "What is funded trading ?",
-    answer:
-      "A funded trading challenge is an evaluation process where you prove your trading skills by meeting specific profit targets while following risk management rules. Once you pass, you get access to a funded account with real capital and keep 80-90% of the profits you generate.",
-    defaultOpen: true,
-  },
-  {
-    id: "item-2",
-    question: "What are the trading rules ?",
-    answer: null,
-    defaultOpen: false,
-  },
-  {
-    id: "item-3",
-    question: "How and when do I get paid ?",
-    answer: null,
-    defaultOpen: false,
-  },
-  {
-    id: "item-4",
-    question: "Can I trade any crypto pair ?",
-    answer: null,
-    defaultOpen: false,
-  },
-  {
-    id: "item-5",
-    question: "What happened if I fail ?",
-    answer: null,
-    defaultOpen: false,
-  },
-];
+import { FAQ_ITEMS, FAQ_SECTION_CONTENT } from "../../utils/constants";
 
 export const PerformanceAndAccountSummarySection = () => {
   const [openItem, setOpenItem] = useState<string | null>("item-1");
@@ -54,26 +20,24 @@ export const PerformanceAndAccountSummarySection = () => {
         <div className="flex flex-col items-start gap-8 flex-1">
           <div className="flex flex-col items-start gap-[19px] self-stretch w-full">
             <h1 className="self-stretch font-bold text-fg text-[36px] tracking-[-0.01em] leading-[44px]">
-              We&apos;re Here to Answer <br />
-              All Your Questions
+              {FAQ_SECTION_CONTENT.title} <br />
+              {FAQ_SECTION_CONTENT.titleSecondLine}
             </h1>
 
             <p className="self-stretch text-muted font-normal text-[18px]  leading-[28px]">
-              Find clear answers to the most common questions about Hyperfunded.
-              Learn how our challenges, rules, and payouts work. Everything you
-              need to start trading with confidence.
+              {FAQ_SECTION_CONTENT.description}
             </p>
           </div>
 
           <div className="flex flex-col items-start gap-6 self-stretch w-full">
             <p className="self-stretch font-semibold text-fg text-[20px] tracking-[-0.01em] leading-[28px]">
-              Still have questions?
+              {FAQ_SECTION_CONTENT.stillHaveQuestions}
             </p>
 
             <Separator className="bg-[#2a2d3e] h-px w-full" />
             <button className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-brand hover:bg-brand-hover rounded-[999px] transition-colors">
               <span className=" font-semibold text-white text-base tracking-[0] leading-5">
-                Start Your Challenge
+                {FAQ_SECTION_CONTENT.ctaLabel}
               </span>
               <Image
                 width={40}
@@ -88,7 +52,7 @@ export const PerformanceAndAccountSummarySection = () => {
 
         {/* Right column - FAQ accordion */}
         <div className="flex flex-col items-center justify-center gap-6 flex-1">
-          {faqItems.map((item) => {
+          {FAQ_ITEMS.map((item) => {
             const isOpen = openItem === item.id;
             return (
               <div

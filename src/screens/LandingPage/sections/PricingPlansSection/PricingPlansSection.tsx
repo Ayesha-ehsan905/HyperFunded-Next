@@ -1,28 +1,6 @@
 "use client";
 import Image from "next/image";
-
-
-// Trader data for the leaderboard cards
-const traders = [
-  {
-    award: "/images/Container2.png",
-    avatar: "/images/user1.png",
-    name: "Floyd Miles",
-    earnings: "$2,450",
-  },
-  {
-    award: "/images/Container.png",
-    avatar: "/images/user2.png",
-    name: "Ralph Edwards",
-    earnings: "$5,000",
-  },
-  {
-    award: "/images/Container1.png",
-    avatar: "/images/user3.png",
-    name: "Darrell Steward",
-    earnings: "$1,900",
-  },
-];
+import { LEADERBOARD_CONTENT, LEADERBOARD_TRADERS } from "../../utils/constants";
 
 export const PricingPlansSection = () => {
   return (
@@ -30,16 +8,16 @@ export const PricingPlansSection = () => {
       {/* Header */}
       <div className="flex flex-col items-start gap-6 self-stretch w-full">
         <p className="flex items-center justify-center self-stretch hf-section-title">
-          Leaderboard
+          {LEADERBOARD_CONTENT.sectionTitle}
         </p>
 
         <div className="flex flex-col items-center gap-4 self-stretch w-full">
           <h2 className="flex items-center justify-center self-stretch hf-section-heading">
-            Top Traders This Month
+            {LEADERBOARD_CONTENT.sectionHeading}
           </h2>
 
           <p className="self-stretch hf-section-subtitle">
-            Compete with the best and climb the ranks
+            {LEADERBOARD_CONTENT.sectionSubtitle}
           </p>
         </div>
       </div>
@@ -47,7 +25,7 @@ export const PricingPlansSection = () => {
       {/* Trader Cards */}
       <div className="flex flex-col items-start pt-20 pb-0 px-0 self-stretch w-full">
         <div className="flex items-start justify-center gap-8 self-stretch w-full">
-          {traders.map((trader, index) => (
+          {LEADERBOARD_TRADERS.map((trader, index) => (
             <div
               key={index}
               className="flex flex-col items-start gap-[0.01px] pt-0 pb-10 px-5 flex-1 self-stretch rounded-[26px] relative overflow-visible"

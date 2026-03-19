@@ -7,43 +7,7 @@ import facebook from "../../../../../public/images/facebook.svg";
 import twitter from "../../../../../public/images/twitter.svg";
 import instagram from "../../../../../public/images/instagram.svg";
 import linkedin from "../../../../../public/images/linkedin.svg";
-
-type FooterLink = {
-  label: string;
-  targetId?: string;
-};
-
-// Navigation link columns data
-const footerColumns: {
-  title: string;
-  links: FooterLink[];
-}[] = [
-  {
-    title: "Product",
-    links: [
-      { label: "How It Works", targetId: "how-it-works" },
-      { label: "Pricing", targetId: "pricing" },
-      { label: "Leaderboard", targetId: "leaderboard" },
-    ],
-  },
-  {
-    title: "Support & Programs",
-    links: [
-      { label: "FAQ's", targetId: "faqs" },
-      { label: "Contact Us", targetId: "contact-us" },
-      // Map Help Center to FAQs for now
-      { label: "Help Center",  },
-    ],
-  },
-  {
-    title: "Legal",
-    links: [
-      { label: "Privacy Policy" },
-      { label: "Terms of Service" },
-      { label: "Cookie Policy" },
-    ],
-  },
-];
+import { FOOTER_COLUMNS } from "../../utils/constants";
 
 const scrollToSection = (targetId?: string) => {
   if (!targetId || typeof document === "undefined") return;
@@ -91,7 +55,7 @@ export const FooterSection = () => {
 
         {/* Navigation columns */}
         <div className="flex items-start gap-8 flex-1 self-stretch">
-          {footerColumns.map((column) => (
+          {FOOTER_COLUMNS.map((column) => (
             <div
               key={column.title}
               className="flex flex-col items-start gap-4 flex-1 self-stretch"
@@ -121,8 +85,8 @@ export const FooterSection = () => {
       </div>
 
       {/* Bottom copyright bar */}
-      <div className="flex flex-col items-start pt-4 pb-0 self-stretch w-full border-t border-[#2a3050]">
-        <p className="self-stretch font-body-regular font-[number:var(--body-regular-font-weight)] text-[#f0f0f0] text-[length:var(--body-regular-font-size)] text-center tracking-[var(--body-regular-letter-spacing)] leading-[var(--body-regular-line-height)] [font-style:var(--body-regular-font-style)]">
+      <div className="flex flex-col items-start pt-4 pb-0 self-stretch w-full border-t border-stroke-divider">
+        <p className="self-stretch font-normal text-fg text-[16px] text-center tracking-[-0.01em] leading-[24px]">
           © 2026 Hyperfunded. All rights reserved.
         </p>
       </div>

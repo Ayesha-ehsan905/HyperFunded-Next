@@ -10,6 +10,7 @@ import TargetLight from "../../../../../public/images/targetLight.svg";
 import VectorDark from "../../../../../public/images/VectorDark.png";
 import VectorLight from "../../../../../public/images/VectorLight.png";
 import Image from "next/image";
+import { TRUSTED_PARTNERS_CONTENT } from "../../utils/constants";
 
 export const TrustedPartnersSection = () => {
   const { theme } = useTheme();
@@ -17,12 +18,14 @@ export const TrustedPartnersSection = () => {
     <section className="flex flex-col items-center justify-center gap-12 sectionSpacing w-full px-6 lg:px-20 " id="how-it-works">
       {/* Header */}
       <div className="flex flex-col items-center gap-4 w-full max-w-[1440px] mx-auto">
-        <p className="hf-section-title text-center w-full">How it Works</p>
+        <p className="hf-section-title text-center w-full">
+          {TRUSTED_PARTNERS_CONTENT.sectionTitle}
+        </p>
         <h2 className="hf-section-heading text-center w-full">
-          Get Funded In Three Simple Steps
+          {TRUSTED_PARTNERS_CONTENT.sectionHeading}
         </h2>
         <p className="hf-section-subtitle text-center w-full">
-          Three simple steps to start trading with our capital
+          {TRUSTED_PARTNERS_CONTENT.sectionSubtitle}
         </p>
       </div>
 
@@ -50,11 +53,10 @@ export const TrustedPartnersSection = () => {
           </div>
           <div className="flex flex-col items-center gap-4 mt-[-75px] text-center">
             <span className="font-semibold text-fg text-[28px] leading-[56px]">
-              Choose Your Challenge
+              {TRUSTED_PARTNERS_CONTENT.stepOneTitle}
             </span>
             <p className="text-muted text-[18px] leading-[28px] max-w-[344px]">
-              Select your account size from $10K to $200K. Pay a one-time
-              challenge fee and get instant access to your evaluation account.
+              {TRUSTED_PARTNERS_CONTENT.stepOneDescription}
             </p>
             <Image
               className="w-[90px] h-[90px]"
@@ -72,11 +74,10 @@ export const TrustedPartnersSection = () => {
             src={theme === "dark" ? Triangle : TriangleLight}
           />
           <span className="font-semibold text-fg text-[28px] leading-[56px] text-center">
-            Pass the Evaluation
+            {TRUSTED_PARTNERS_CONTENT.stepTwoTitle}
           </span>
           <p className="text-muted text-[18px] leading-[28px] text-center max-w-[290px] mt-2">
-            Hit your profit target while staying within risk rules. Trade any
-            crypto pair, any strategy. We measure skill, not luck.
+            {TRUSTED_PARTNERS_CONTENT.stepTwoDescription}
           </p>
           <div
             className="absolute text-[120px] font-black leading-[144px] text-transparent top-[60%] left-[87%]"
@@ -106,11 +107,10 @@ export const TrustedPartnersSection = () => {
           </div>
           <div className="flex flex-col items-center gap-4 mt-[-105px] text-center">
             <span className="font-semibold text-fg text-[28px] leading-[56px]">
-              Get Funded &amp; Earn
+              {TRUSTED_PARTNERS_CONTENT.stepThreeTitle}
             </span>
             <p className="text-muted text-[18px] leading-[28px] max-w-[344px]">
-              Trade with real capital and receive 80-90% of your profits. Withdraw
-              anytime. Scale up to larger accounts.
+              {TRUSTED_PARTNERS_CONTENT.stepThreeDescription}
             </p>
             <Image
               className="w-[90px] h-[90px]"
@@ -125,7 +125,7 @@ export const TrustedPartnersSection = () => {
       <div className="flex items-center justify-center gap-4 self-stretch w-full mt-[60px]">
         <button className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-brand hover:bg-brand-hover rounded-[999px] transition-colors">
           <span className=" font-semibold text-white text-base tracking-[0] leading-5">
-            Start Your Challenge
+            {TRUSTED_PARTNERS_CONTENT.ctaLabel}
           </span>
           <Image
             width={40}

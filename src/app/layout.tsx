@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" href="/Vector.svg" />
         <Script id="hf-theme-init" strategy="beforeInteractive">{`
       try {
         const theme = localStorage.getItem("hf-theme");

@@ -4,20 +4,7 @@ import Image from "next/image";
 import logo from "../../../../../public/images/Logo.png";
 import { useEffect, useState } from "react";
 import { useTheme } from "../../../../lib/theme-context";
-
-type NavLink = {
-  label: string;
-  targetId?: string;
-};
-
-const navLinks: NavLink[] = [
-  { label: "How It Works", targetId: "how-it-works" },
-  { label: "Pricing", targetId: "pricing" },
-  { label: "Testimonials", targetId: "testimonials" },
-  { label: "Leaderboard", targetId: "leaderboard" },
-  { label: "FAQ's", targetId: "faqs" },
-  { label: "Contact Us", targetId: "contact-us" },
-];
+import { HERO_CONTENT, NAV_LINKS } from "../../utils/constants";
 
 const scrollToSection = (targetId?: string) => {
   if (!targetId || typeof document === "undefined") return;
@@ -31,7 +18,7 @@ export const Navbar = () => {
   const { toggle, theme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeTargetId, setActiveTargetId] = useState<string | undefined>(
-    navLinks[0]?.targetId,
+    NAV_LINKS[0]?.targetId,
   );
 
   useEffect(() => {
@@ -49,7 +36,7 @@ export const Navbar = () => {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    const sectionIds = navLinks
+    const sectionIds = NAV_LINKS
       .map((link) => link.targetId)
       .filter((id): id is string => Boolean(id));
 
@@ -93,7 +80,7 @@ export const Navbar = () => {
 
       {/* Nav Links */}
       <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 flex-1">
-        {navLinks.map((link) => (
+        {NAV_LINKS.map((link) => (
           <button
             key={link.label}
             type="button"
@@ -142,7 +129,7 @@ export const Navbar = () => {
         {/* CTA Button */}
         <button className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 sm:py-4 bg-brand hover:bg-brand-hover rounded-full transition-colors">
           <span className="font-semibold text-white text-sm sm:text-base leading-5">
-            Start Your Challenge
+            {HERO_CONTENT.ctaLabel}
           </span>
           <Image
             width={24}
