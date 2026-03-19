@@ -20,7 +20,7 @@ const navLinks = [
 // const timePeriods = ["7D", "14D", "1M", "3M"];
 
 export const HeroSection = () => {
-  const { toggle, isDark } = useTheme();
+  const { toggle, theme } = useTheme();
 
   return (
     <section className="relative w-full hf-gradient-hero overflow-hidden">
@@ -30,7 +30,8 @@ export const HeroSection = () => {
         width={1042}
         height={722}
         alt="Bg"
-        src={isDark ? "/images/DarkBG.png" : "/images/LightBG.png"}
+        src={theme === "dark" ? "/images/DarkBG.png" : "/images/LightBG.png"}
+        suppressHydrationWarning
       />
 
       <nav
@@ -66,7 +67,7 @@ export const HeroSection = () => {
             type="button"
             onClick={toggle}
             aria-label={
-              isDark ? "Switch to light theme" : "Switch to dark theme"
+              theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
             }
             className="flex w-10 h-10 sm:w-12 sm:h-12 items-center justify-center p-2 bg-surface rounded-3xl border border-solid border-border"
           >
@@ -74,8 +75,8 @@ export const HeroSection = () => {
               width={32}
               height={32}
               className="w-6 h-6 sm:w-8 sm:h-8 cursor-pointer"
-              alt={isDark ? "Moon" : "Sun"}
-              src={isDark ? "/images/moon.png" : "/images/sun.png"}
+              alt={theme === "dark" ? "Moon" : "Sun"}
+              src={theme === "dark" ? "/images/moon.png" : "/images/sun.png"}
             />
           </button>
 
@@ -167,8 +168,9 @@ export const HeroSection = () => {
       </div>
       <div className="flex items-start gap-8 w-full justify-center pb-[80px]">
         <Image
-          src={isDark ? HeroSectionImage : HeroSectionLight}
+          src={theme === "dark" ? HeroSectionImage : HeroSectionLight}
           alt="Hero Section"
+          suppressHydrationWarning
         />
       </div>
     </section>

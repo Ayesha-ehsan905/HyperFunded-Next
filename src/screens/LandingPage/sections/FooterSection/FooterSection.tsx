@@ -1,4 +1,11 @@
 import { Separator } from "../../../../components/ui/separator";
+import Image from "next/image";
+import logo from "../../../../../public/images/Logo.png";
+import facebook from "../../../../../public/images/facebook.svg";
+import twitter from "../../../../../public/images/twitter.svg";
+import instagram from "../../../../../public/images/instagram.svg";
+import linkedin from "../../../../../public/images/linkedin.svg";
+
 
 // Navigation link columns data
 const footerColumns = [
@@ -18,7 +25,7 @@ const footerColumns = [
 
 export const FooterSection = () => {
   return (
-    <footer className="flex flex-col w-full items-start gap-6 pt-20 pb-6 px-16 xl:px-60 bg-[#0d0f17]">
+    <footer className="flex flex-col w-full items-start gap-6 pt-20 pb-6 px-16 xl:px-60 bg-page">
       {/* Main footer content row */}
       <div className="flex flex-col lg:flex-row items-start lg:items-center gap-12 lg:gap-[120px] self-stretch w-full">
         {/* Brand / description / social column */}
@@ -26,20 +33,13 @@ export const FooterSection = () => {
           {/* Logo + description */}
           <div className="flex flex-col items-start justify-center gap-2 self-stretch w-full">
             {/* Logo row */}
-            <div className="flex px-0 py-3 self-stretch w-full items-center gap-2">
-              <img
-                className="w-[25.23px] h-[30px]"
-                alt="Vector"
-                src="/vector-1.svg"
-              />
-              <span className="flex-1 font-heading-h3 font-[number:var(--heading-h3-font-weight)] text-[#ff5a44] text-[length:var(--heading-h3-font-size)] tracking-[var(--heading-h3-letter-spacing)] leading-[var(--heading-h3-line-height)] [font-style:var(--heading-h3-font-style)]">
-                Hyperfunded
-              </span>
+            <div className="flex px-0 py-0 self-stretch w-full items-center gap-2">
+              <Image alt="Vector" src={logo} />
             </div>
 
             {/* Description */}
             <div className="flex flex-col items-start self-stretch w-full">
-              <p className="self-stretch font-body-large-regular font-[number:var(--body-large-regular-font-weight)] text-[#8a8fa8] text-[length:var(--body-large-regular-font-size)] tracking-[var(--body-large-regular-letter-spacing)] leading-[var(--body-large-regular-line-height)] [font-style:var(--body-large-regular-font-style)]">
+              <p className="self-stretch font-normal text-muted text-[18px] tracking-[-0.01em] leading-[28px]">
                 Funding the next generation of crypto traders. Prove your skill
                 through performance-based challenges. Trade real capital and
                 keep the majority of profits.
@@ -48,14 +48,15 @@ export const FooterSection = () => {
           </div>
 
           {/* Divider line */}
-          <Separator className="bg-[#2a3050] h-px w-full" />
+          <Separator className="bg-stroke-divider h-px w-full" />
 
           {/* Social icons */}
-          <img
-            className="self-stretch w-full"
-            alt="Social stack"
-            src="/social-stack.svg"
-          />
+          <div className="flex items-center gap-2 self-stretch w-full">
+            <Image src={facebook} alt="Facebook" />
+            <Image src={twitter} alt="Twitter" />
+            <Image src={instagram} alt="Instagram" />
+            <Image src={linkedin} alt="Linkedin" />
+          </div>
         </div>
 
         {/* Navigation columns */}
@@ -67,7 +68,7 @@ export const FooterSection = () => {
             >
               {/* Column heading */}
               <div className="flex items-center justify-center gap-2.5 self-stretch w-full">
-                <span className="flex-1 font-heading-h3 font-[number:var(--heading-h3-font-weight)] text-[#f0f0f0] text-[length:var(--heading-h3-font-size)] tracking-[var(--heading-h3-letter-spacing)] leading-[var(--heading-h3-line-height)] [font-style:var(--heading-h3-font-style)]">
+                <span className="flex-1 font-semibold text-fg text-[22px] tracking-[-0.01em] leading-[28px]">
                   {column.title}
                 </span>
               </div>
@@ -78,7 +79,7 @@ export const FooterSection = () => {
                   key={link}
                   className="flex items-center justify-center gap-2.5 self-stretch w-full cursor-pointer"
                 >
-                  <span className="flex-1 font-body-medium font-[number:var(--body-medium-font-weight)] text-[#8a8fa8] text-[length:var(--body-medium-font-size)] tracking-[var(--body-medium-letter-spacing)] leading-[var(--body-medium-line-height)] [font-style:var(--body-medium-font-style)] hover:text-[#f0f0f0] transition-colors">
+                  <span className="flex-1 font-medium text-muted text-[16px] tracking-[-0.01em] leading-[24px] hover:text-fg transition-colors">
                     {link}
                   </span>
                 </div>

@@ -3,19 +3,25 @@
 import { useState } from "react";
 import { Button } from "../../../../components/ui/button";
 import { Input } from "../../../../components/ui/input";
+import { useTheme } from "../../../../lib/theme-context";
+import Image from "next/image";
+import logo from "../../../../../public/images/Logo.png";
 
 export const FAQSection = () => {
+  const { theme } = useTheme();
   const [email, setEmail] = useState("");
-
   return (
-    <section className="flex flex-col items-center justify-center gap-12 px-60 py-20 w-full bg-page">
+    <section className="flex flex-col items-center justify-center gap-12 px-60 py-20 w-full ">
       {/* Inner card with gradient background */}
-      <div className="relative flex flex-col items-center justify-center px-8 py-20 rounded-2xl overflow-hidden hf-gradient-darkpanel w-full">
+      <div className="relative flex flex-col items-center justify-center px-8 py-20 rounded-2xl overflow-hidden hf-gradient-hero w-full">
         {/* Background decorative image */}
-        <img
+        <Image
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[918px] h-[556px] pointer-events-none"
+          width={918}
+          height={556}
           alt="Bg"
-          src="/bg-1.svg"
+          src={theme === "dark" ? "/images/DarkBG.png" : "/images/LightBG.png"}
+          suppressHydrationWarning
         />
 
         {/* Content container */}
@@ -24,10 +30,8 @@ export const FAQSection = () => {
           <div className="flex flex-col items-center gap-8 w-full">
             {/* Brand logo + name */}
             <div className="flex items-center gap-2">
-              <img className="w-[37px] h-11" alt="Vector" src="/vector.svg" />
-              <span className="hf-heading-h3 text-brand whitespace-nowrap">
-                Hyperfunded
-              </span>
+            <Image src={logo} alt="Logo" className="h-10 md:h-12" />
+
             </div>
 
             {/* Headline text */}

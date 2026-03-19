@@ -18,8 +18,8 @@ export const LandingPage = () => {
       <TestimonialsSection />
       <PricingPlansSection />
       <PerformanceAndAccountSummarySection />
-      {/*<FAQSection />
-      <FooterSection /> */}
+      <FAQSection />
+      <FooterSection />
     </div>
   );
 };
