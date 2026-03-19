@@ -33,21 +33,26 @@ export const HeroSection = () => {
         src={isDark ? "/images/DarkBG.png" : "/images/LightBG.png"}
       />
 
-      {/* Navigation Bar */}
-      <nav className=" w-full flex items-center justify-center gap-12 px-20 py-5 border-t-[1.5px] border-b-[1.5px] border-border">
+      <nav
+        className="w-full flex items-center justify-center border-t-[1.5px] border-b-[1.5px] border-border
+    px-10 md:px-16 lg:px-20 py-4 md:py-5"
+      >
         {/* Logo */}
         <div className="inline-flex items-center gap-2 shrink-0">
-          <Image src={logo} alt="Logo" />
+          <Image src={logo} alt="Logo" className="h-10 md:h-12" />
         </div>
 
         {/* Nav Links */}
-        <div className="flex items-center justify-center gap-6 flex-1">
+        <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 flex-1">
           {navLinks.map((link) => (
             <span
               key={link.label}
-              className="inline-flex items-center justify-center gap-6 "
+              className="inline-flex items-center justify-center"
             >
-              <span className=" cursor-pointer hf-label text-muted whitespace-nowrap  px-4 py-3 hover:bg-bg-orange  hover:text-orange transition-colors rounded-full">
+              <span
+                className="cursor-pointer hf-label text-muted whitespace-nowrap px-3 sm:px-4 py-2 sm:py-3 
+          hover:bg-bg-orange hover:text-orange transition-colors rounded-full text-sm sm:text-base"
+              >
                 {link.label}
               </span>
             </span>
@@ -55,7 +60,7 @@ export const HeroSection = () => {
         </div>
 
         {/* Right side actions */}
-        <div className="inline-flex items-center gap-8 -shrink-0">
+        <div className="inline-flex items-center gap-4 sm:gap-6 md:gap-8 shrink-0">
           {/* Theme toggle */}
           <button
             type="button"
@@ -63,30 +68,29 @@ export const HeroSection = () => {
             aria-label={
               isDark ? "Switch to light theme" : "Switch to dark theme"
             }
-            className=" cursor-pointer flex w-12 h-12 items-center justify-center gap-2.5 p-2 bg-surface rounded-3xl border border-solid border-border"
+            className="flex w-10 h-10 sm:w-12 sm:h-12 items-center justify-center p-2 bg-surface rounded-3xl border border-solid border-border"
           >
             <Image
               width={32}
               height={32}
-              className="w-8 h-8"
+              className="w-6 h-6 sm:w-8 sm:h-8"
               alt={isDark ? "Moon" : "Sun"}
               src={isDark ? "/images/moon.png" : "/images/sun.png"}
             />
           </button>
 
           {/* Divider */}
-          {/* <Image className="w-0.5 h-[38px]" alt="Line" src="/line-9-1.svg" /> */}
-          <span className="w-0.5 h-[38px] bg-disabled"></span>
+          <span className="w-0.5 h-8 sm:h-[38px] bg-disabled"></span>
 
           {/* CTA Button */}
-          <button className="inline-flex items-center justify-center gap-2 px-4 py-4 bg-brand hover:bg-brand-hover rounded-[999px] transition-colors">
-            <span className="font-semibold text-white text-base tracking-[0] leading-5">
+          <button className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 sm:py-4 bg-brand hover:bg-brand-hover rounded-full transition-colors">
+            <span className="font-semibold text-white text-sm sm:text-base leading-5">
               Start Your Challenge
             </span>
             <Image
-              width={28}
-              height={28}
-              className="h-7 w-7"
+              width={24}
+              height={24}
+              className="w-6 h-6 sm:w-7 sm:h-7"
               alt="Icon wrap"
               src="/images/arrow.png"
             />
