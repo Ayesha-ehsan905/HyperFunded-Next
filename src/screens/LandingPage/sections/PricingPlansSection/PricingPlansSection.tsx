@@ -1,20 +1,24 @@
+"use client";
+import Image from "next/image";
+
+
 // Trader data for the leaderboard cards
 const traders = [
   {
-    award: "/award-silver-png.png",
-    avatar: "/ellipse-10-3.png",
+    award: "/images/Container2.png",
+    avatar: "/images/user1.png",
     name: "Floyd Miles",
     earnings: "$2,450",
   },
   {
-    award: "/award-gold-png.png",
-    avatar: "/ellipse-11.png",
+    award: "/images/Container.png",
+    avatar: "/images/user2.png",
     name: "Ralph Edwards",
     earnings: "$5,000",
   },
   {
-    award: "/award-bronze-png.png",
-    avatar: "/ellipse-11-1.png",
+    award: "/images/Container1.png",
+    avatar: "/images/user3.png",
     name: "Darrell Steward",
     earnings: "$1,900",
   },
@@ -22,19 +26,19 @@ const traders = [
 
 export const PricingPlansSection = () => {
   return (
-    <section className="flex flex-col items-center justify-center gap-12 px-60 py-[120px] self-stretch w-full bg-[#0d0f17]">
+    <section className="flex flex-col items-center justify-center gap-12 sectionSpacing self-stretch w-full">
       {/* Header */}
       <div className="flex flex-col items-start gap-6 self-stretch w-full">
-        <p className="flex items-center justify-center self-stretch font-body-semobold20 font-[number:var(--body-semobold20-font-weight)] text-[#ff5a44] text-[length:var(--body-semobold20-font-size)] text-center tracking-[var(--body-semobold20-letter-spacing)] leading-[var(--body-semobold20-line-height)] [font-style:var(--body-semobold20-font-style)]">
+        <p className="flex items-center justify-center self-stretch hf-section-title">
           Leaderboard
         </p>
 
         <div className="flex flex-col items-center gap-4 self-stretch w-full">
-          <h2 className="flex items-center justify-center self-stretch font-display-large font-[number:var(--display-large-font-weight)] text-[#f0f0f0] text-[length:var(--display-large-font-size)] text-center tracking-[var(--display-large-letter-spacing)] leading-[var(--display-large-line-height)] [font-style:var(--display-large-font-style)]">
+          <h2 className="flex items-center justify-center self-stretch hf-section-heading">
             Top Traders This Month
           </h2>
 
-          <p className="self-stretch font-body-semobold20 font-[number:var(--body-semobold20-font-weight)] text-[#8a8fa8] text-[length:var(--body-semobold20-font-size)] text-center tracking-[var(--body-semobold20-letter-spacing)] leading-[var(--body-semobold20-line-height)] [font-style:var(--body-semobold20-font-style)]">
+          <p className="self-stretch hf-section-subtitle">
             Compete with the best and climb the ranks
           </p>
         </div>
@@ -53,7 +57,7 @@ export const PricingPlansSection = () => {
               <div className="absolute w-[70%] h-[60%] top-[40%] left-[30%] bg-[#ffffff01] rounded-[26px] shadow-[0px_0px_15px_#1890ff] opacity-0" />
 
               {/* Card background */}
-              <div className="absolute w-[calc(100%+2px)] h-[calc(100%-1px)] top-px left-0 bg-[#151a2d] rounded-xl border border-solid border-[#2a3050]" />
+              <div className="absolute w-[calc(100%+2px)] h-[calc(100%-1px)] top-px left-0 bg-surace-card rounded-xl border border-solid border-border" />
 
               {/* Trophy image area - overflows above card */}
               <div className="relative self-stretch w-full h-[272px]">
@@ -70,18 +74,20 @@ export const PricingPlansSection = () => {
 
               {/* Trader info */}
               <div className="flex items-center justify-end gap-4 relative self-stretch w-full">
-                <img
-                  className="relative w-[72px] h-[72px] mt-[-1px] mb-[-1px] ml-[-1px] border-2 border-solid border-[#ff5a44] object-cover rounded-full"
+                <Image
+                  width={72}
+                  height={72}
+                  className="relative w-[72px] h-[72px] mt-px mb-px ml-px  object-cover rounded-full"
                   alt={trader.name}
                   src={trader.avatar}
                 />
 
                 <div className="flex flex-col items-start gap-1 relative flex-1">
-                  <p className="self-stretch font-heading-h3 font-[number:var(--heading-h3-font-weight)] text-[#f0f0f0] text-[length:var(--heading-h3-font-size)] tracking-[var(--heading-h3-letter-spacing)] leading-[var(--heading-h3-line-height)] relative mt-[-1px] [font-style:var(--heading-h3-font-style)]">
+                  <p className="self-stretch font-bold text-fg text-[32px] tracking-[-0.01em] leading-[40px] relative mt-px">
                     {trader.name}
                   </p>
 
-                  <p className="self-stretch font-KPI-primary font-[number:var(--KPI-primary-font-weight)] text-[#00d084] text-[length:var(--KPI-primary-font-size)] leading-[var(--KPI-primary-line-height)] relative tracking-[var(--KPI-primary-letter-spacing)] [font-style:var(--KPI-primary-font-style)]">
+                  <p className="self-stretch font-bold text-success text-[24px] tracking-[-0.01em] leading-[32px] relative">
                     {trader.earnings}
                   </p>
                 </div>
