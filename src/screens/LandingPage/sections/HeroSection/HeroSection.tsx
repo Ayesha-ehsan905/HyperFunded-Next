@@ -1,5 +1,6 @@
  "use client";
 
+import { useState } from "react";
 import { useTheme } from "../../../../lib/theme-context";
 import Image from "next/image";
 import HeroSectionImage from "../../../../../public/images/Asset Hero - Dark.png";
@@ -10,7 +11,14 @@ import { HERO_CONTENT } from "../../utils/constants";
 // const timePeriods = ["7D", "14D", "1M", "3M"];
 
 export const HeroSection = () => {
-  const { toggle, theme } = useTheme();
+  const { theme } = useTheme();
+  const [isWatchHover, setIsWatchHover] = useState(false);
+
+  const watchIconSrc = isWatchHover
+    ? "/images/videoIcon.svg"
+    : theme === "dark"
+      ? "/images/videoIcon.svg"
+      : "/images/videoIconLight.svg";
 
   return (
     <section className="relative w-full hf-gradient-hero overflow-hidden ">
@@ -60,28 +68,34 @@ export const HeroSection = () => {
           {/* CTA Buttons */}
           <div className="flex items-center justify-center gap-4 w-full">
             {/* Watch How it Works */}
-            <button className="inline-flex items-center justify-center gap-2 p-4 rounded-[999px] border border-solid border-fg">
+            <button
+              onMouseEnter={() => setIsWatchHover(true)}
+              onMouseLeave={() => setIsWatchHover(false)}
+              onFocus={() => setIsWatchHover(true)}
+              onBlur={() => setIsWatchHover(false)}
+              className="inline-flex items-center justify-center gap-2 p-4 rounded-[999px] border border-solid border-fg hover:border-orange hover:bg-orange transition-all duration-300 h "
+            >
               <Image
                 width={24}
                 height={24}
                 className="w-6 h-6"
                 alt="Video new"
-                src="/images/videoIcon.svg"
+                src={watchIconSrc}
               />
-              <span className=" font-semibold text-fg text-base tracking-[0] leading-5">
+              <span className="font-semibold text-fg text-base tracking-[0] leading-5 transition-colors hover:text-white">
                 {HERO_CONTENT.watchButtonLabel}
               </span>
             </button>
 
             {/* Start Your Challenge */}
-            <button className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-brand hover:bg-brand-hover rounded-[999px] transition-colors">
+            <button className="group inline-flex items-center justify-center gap-2 px-4 py-3 bg-brand hover:bg-brand-hover rounded-[999px] transition-all duration-300 transform hover:scale-[1.03] active:scale-[0.98]">
               <span className=" font-semibold text-white text-base tracking-[0] leading-5">
                 {HERO_CONTENT.ctaLabel}
               </span>
               <Image
                 width={40}
                 height={39}
-                className=""
+                className="transition-transform duration-300 transform translate-x-0 group-hover:translate-x-2"
                 alt="Icon wrap"
                 src="/images/arrow.png"
               />

@@ -74,7 +74,7 @@ export const Navbar = () => {
       }`}
     >
       {/* Logo */}
-      <div className="inline-flex items-center gap-2 shrink-0">
+      <div className="inline-flex items-center gap-2 shrink-0 mr-[40px]">
         <Image src={logo} alt="Logo" className="" />
       </div>
 
