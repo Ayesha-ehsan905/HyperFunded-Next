@@ -15,10 +15,10 @@ const scrollToSection = (targetId?: string) => {
 };
 
 export const Navbar = () => {
-  const { toggle, theme } = useTheme();
+  const { toggleTheme, theme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeTargetId, setActiveTargetId] = useState<string | undefined>(
-    NAV_LINKS[0]?.targetId,
+    undefined,
   );
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export const Navbar = () => {
     const updateActiveSection = () => {
       // Keep some offset for fixed navbar height.
       const scrollPosition = window.scrollY + 140;
-      let currentSectionId = sectionIds[0];
+      let currentSectionId: string | undefined = undefined;
 
       sectionIds.forEach((id) => {
         const section = document.getElementById(id);
@@ -69,7 +69,7 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 z-50 w-full flex items-center justify-center border-t-[1.5px] border-b-[1.5px] border-border px-10 md:px-10 2xl:px-20 py-4 md:py-4 transition-colors ${
+      className={`fixed top-0 left-0 z-50 w-full flex items-center justify-center border-t-[1.5px] border-b-[1.5px] border-border px-10 md:px-10 2xl:px-20 py-2 md:py-4 transition-colors ${
         isScrolled ? "bg-page/90 backdrop-blur" : "bg-transparent"
       }`}
     >
@@ -108,7 +108,7 @@ export const Navbar = () => {
         {/* Theme toggle */}
         <button
           type="button"
-          onClick={toggle}
+          onClick={toggleTheme}
           aria-label={
             theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
           }
@@ -127,8 +127,10 @@ export const Navbar = () => {
         <span className="w-0.5 h-8 sm:h-[38px] bg-disabled" />
 
         {/* CTA Button */}
-        <button className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 sm:py-4 bg-brand hover:bg-brand-hover rounded-full transition-colors">
-          <span className="font-semibold text-white text-sm sm:text-base leading-5">
+        <button className={`inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-2 sm:py-4  rounded-full transition-colors ${isScrolled ? "bg-transparent border border-orange text-orange! hover:bg-transparent hover:border-orange hover:text-orange" : "bg-brand hover:bg-brand-hover"}`}
+        
+        >
+          <span className={`font-semibold ${isScrolled ? "text-orange" : "text-white"} text-sm sm:text-base leading-5`}>
             {HERO_CONTENT.ctaLabel}
           </span>
           <Image
@@ -136,7 +138,7 @@ export const Navbar = () => {
             height={24}
             className="w-6 h-6 sm:w-7 sm:h-7"
             alt="Icon wrap"
-            src="/images/arrow.png"
+            src={isScrolled ?theme === "dark" ? "/images/darkHoverArrow.png" : "/images/lightHoverArrow.png" : "/images/arrow.png"}
           />
         </button>
       </div>

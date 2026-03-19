@@ -1,44 +1,28 @@
 "use client";
+import { createContext, useContext, useState, useEffect } from "react";
 
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  type ReactNode,
-} from "react";
-import { applyTheme, getInitialTheme, toggleTheme, type Theme } from "./theme";
+type Theme = "light" | "dark";
 
-type ThemeContextValue = {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
-  toggle: () => void;
-  isDark: boolean;
-};
+const ThemeContext = createContext({
+  theme: "dark" as Theme,
+  toggleTheme: () => {},
+});
 
-const ThemeContext = createContext<ThemeContextValue | null>(null);
-
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => getInitialTheme());
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    applyTheme(theme);
+    // Apply dark class on initial load based on state
+    document.documentElement.classList.toggle("dark", theme === "dark");
   }, [theme]);
 
-  const toggle = useCallback(() => setTheme((t) => toggleTheme(t)), []);
-  const value = useMemo(
-    () => ({ theme, setTheme, toggle, isDark: theme === "dark" }),
-    [theme, toggle],
+  const toggleTheme = () => setTheme((prev) => (prev === "light" ? "dark" : "light"));
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
   );
+};
 
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
-}
-
-export function useTheme() {
-  const ctx = useContext(ThemeContext);
-  if (!ctx) throw new Error("useTheme must be used within ThemeProvider");
-  return ctx;
-}
-
+export const useTheme = () => useContext(ThemeContext);

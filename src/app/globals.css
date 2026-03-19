@@ -208,3 +208,11 @@ body {
   }
 
 }
+
+/* Override: starting at 1600px wide, increase horizontal padding to px-50. */
+@media (min-width: 1600px) {
+  .sectionSpacing {
+    padding-left: 12.5rem; /* tailwind px-50 */
+    padding-right: 12.5rem;
+  }
+}
