@@ -109,7 +109,7 @@ export const TrustedPartnersSection = () => {
             <span className="font-semibold text-fg text-[28px] leading-[56px]">
               {TRUSTED_PARTNERS_CONTENT.stepThreeTitle}
             </span>
-            <p className="text-muted text-[18px] leading-[28px] max-w-[344px]">
+            <p className="text-muted text-[18px] leading-[28px] max-w-[324px]">
               {TRUSTED_PARTNERS_CONTENT.stepThreeDescription}
             </p>
             <Image

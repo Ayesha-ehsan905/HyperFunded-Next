@@ -201,7 +201,7 @@ body {
   }
 
   .sectionSpacing {
-    @apply px-6 pt-16 sm:px-16 lg:px-10 xl:px-24 2xl:px-60 md:pt-24 xl:pt-[240px];
+    @apply px-6 pt-16 sm:px-16 lg:px-10 xl:px-24 2xl:px-30 md:pt-24 xl:pt-[120px];
   }
 
 }
